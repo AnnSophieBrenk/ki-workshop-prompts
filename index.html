@@ -205,6 +205,36 @@
   }
   .tip strong { display: block; margin-bottom: 4px; }
 
+  /* ---------- Collect section ---------- */
+  .collect {
+    margin-top: 28px;
+    background: var(--ink);
+    color: #fff;
+    border-radius: var(--radius);
+    padding: 28px 28px 30px;
+  }
+  .collect-head { display: flex; align-items: center; gap: 12px; }
+  .collect-head h2 { margin: 0; font-size: 22px; }
+  .collect-ico { font-size: 24px; }
+  .collect-lead { color: #c7ccd4; font-size: 15px; margin: 12px 0 16px; max-width: 640px; }
+  .collect-steps { margin: 0 0 22px; padding-left: 20px; color: #e9edf2; font-size: 14.5px; }
+  .collect-steps li { margin-bottom: 6px; }
+  .collect-steps strong { color: #fff; }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--blue);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 15px;
+    padding: 13px 22px;
+    border-radius: 11px;
+    transition: background .15s, transform .15s;
+  }
+  .btn-primary:hover { background: #1e6dff; transform: translateY(-2px); }
+
   footer {
     max-width: 920px;
     margin: 0 auto;
@@ -386,6 +416,19 @@ REGELN:
     <strong>💡 Tipp für den Ablauf</strong>
     Arbeiten Sie im selben Chat-Verlauf: Erst Prompt 1, Antwort abwarten — dann Prompt 2 — dann Prompt 3. So kennt die KI Ihre Probleme und Chancen bereits und Sie müssen sie in Schritt 3 nicht erneut einfügen.
   </div>
+
+  <section class="collect" id="sammeln">
+    <div class="collect-head">
+      <span class="collect-ico">📊</span>
+      <h2>Ergebnisse sammeln</h2>
+    </div>
+    <p class="collect-lead">Kopieren Sie zum Abschluss Ihre Tabelle aus Schritt&nbsp;3 und tragen Sie sie in die gemeinsame Tabelle ein. So entsteht aus allen Teilnehmenden eine Gesamtübersicht.</p>
+    <ol class="collect-steps">
+      <li>Tabelle aus <strong>Schritt 3</strong> markieren und kopieren (Strg/Cmd&nbsp;+&nbsp;C).</li>
+      <li>In der gemeinsamen Tabelle in die <strong>erste freie Zeile</strong> klicken und einfügen (Strg/Cmd&nbsp;+&nbsp;V) — die Spalten füllen sich automatisch.</li>
+    </ol>
+    <a class="btn-primary" href="https://docs.google.com/spreadsheets/d/1rqooCpc-9Rhj2-AVCIWgf0riRH7MzHRexzluR8epUAM/edit?usp=sharing" target="_blank" rel="noopener">➡️ Zur gemeinsamen Ergebnis-Tabelle</a>
+  </section>
 
 </main>
 
