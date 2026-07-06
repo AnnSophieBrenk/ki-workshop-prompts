@@ -116,6 +116,85 @@
   .step-chip .t { font-weight: 700; font-size: 14px; display: block; }
   .step-chip .d { font-size: 13px; color: var(--gray-2); }
 
+  /* ---------- How-to (3 Schritte) ---------- */
+  .howto {
+    max-width: 920px;
+    margin: 8px auto 0;
+    padding: 0 24px;
+  }
+  .howto-title { font-size: 21px; margin: 0 0 16px; }
+  .howto-list {
+    list-style: none;
+    margin: 0; padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  .howto-list li {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 24px 20px 20px;
+    transition: border-color .15s, transform .15s, box-shadow .15s;
+  }
+  .howto-list li::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: var(--accent, var(--blue));
+  }
+  .howto-list li:hover {
+    transform: translateY(-3px);
+    border-color: var(--accent, var(--blue));
+    box-shadow: 0 10px 26px rgba(0,0,0,.07);
+  }
+  .howto-list .hi {
+    flex: 0 0 auto;
+    width: 52px; height: 52px;
+    border-radius: 15px;
+    background: color-mix(in srgb, var(--accent, var(--blue)) 13%, #fff);
+    color: var(--accent, var(--blue));
+    font-size: 26px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .howto-list .hc strong { display: block; font-size: 16px; margin-bottom: 4px; }
+  .howto-list .hc p { margin: 0; font-size: 14px; color: var(--gray-1); line-height: 1.5; }
+  .warn { display: block; margin-top: 8px; color: #b42318; font-weight: 600; }
+
+  /* ---------- Phasen-Banner ---------- */
+  .phase {
+    max-width: 920px;
+    margin: 8px auto 0;
+    padding: 0 24px;
+  }
+  .phase-inner {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-left: 5px solid var(--accent, var(--blue));
+    border-radius: 14px;
+    padding: 18px 22px;
+  }
+  .phase-ico {
+    flex: 0 0 auto;
+    width: 50px; height: 50px;
+    border-radius: 14px;
+    background: color-mix(in srgb, var(--accent, var(--blue)) 13%, #fff);
+    color: var(--accent, var(--blue));
+    font-size: 26px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .phase-txt strong { display: block; font-size: 18px; }
+  .phase-txt p { margin: 2px 0 0; font-size: 14px; color: var(--gray-1); line-height: 1.5; }
+
   /* ---------- Prompt cards ---------- */
   main { max-width: 920px; margin: 0 auto; padding: 32px 24px 64px; }
 
@@ -146,6 +225,23 @@
   .card.c2 .badge { background: var(--blue-dark); }
   .card.c3 { border-top: 4px solid #2f9e44; }
   .card.c3 .badge { background: #2f9e44; }
+  .card.c4 { border-top: 4px solid #6741d9; }
+  .card.c4 .badge { background: #6741d9; }
+  .card.c4 .titles .sub .lead-tag {
+    display: inline-block;
+    background: #6741d9;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 999px;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+  .card-body .desc ul { margin: 8px 0 0; padding-left: 20px; }
+  .card-body .desc ul li { margin-bottom: 3px; }
 
   .card-head .titles h2 { margin: 0; font-size: 20px; }
   .card-head .titles .sub { color: var(--gray-1); font-size: 14px; margin-top: 2px; }
@@ -207,19 +303,29 @@
 
   /* ---------- Collect section ---------- */
   .collect {
-    margin-top: 28px;
-    background: var(--ink);
-    color: #fff;
-    border-radius: var(--radius);
-    padding: 28px 28px 30px;
+    margin-top: 24px;
+    background: #fff;
+    color: var(--ink);
+    border: 1px solid var(--line);
+    border-left: 5px solid var(--accent, #f08c00);
+    border-radius: 14px;
+    padding: 22px 24px 24px;
   }
-  .collect-head { display: flex; align-items: center; gap: 12px; }
-  .collect-head h2 { margin: 0; font-size: 22px; }
-  .collect-ico { font-size: 24px; }
-  .collect-lead { color: #c7ccd4; font-size: 15px; margin: 12px 0 16px; max-width: 640px; }
-  .collect-steps { margin: 0 0 22px; padding-left: 20px; color: #e9edf2; font-size: 14.5px; }
+  .collect-head { display: flex; align-items: center; gap: 16px; }
+  .collect-head h2 { margin: 0; font-size: 20px; }
+  .collect-ico {
+    flex: 0 0 auto;
+    width: 50px; height: 50px;
+    border-radius: 14px;
+    background: color-mix(in srgb, var(--accent, #f08c00) 13%, #fff);
+    color: var(--accent, #f08c00);
+    font-size: 26px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .collect-lead { color: var(--gray-1); font-size: 15px; margin: 12px 0 16px; max-width: 640px; }
+  .collect-steps { margin: 0 0 22px; padding-left: 20px; color: var(--gray-1); font-size: 14.5px; }
   .collect-steps li { margin-bottom: 6px; }
-  .collect-steps strong { color: #fff; }
+  .collect-steps strong { color: var(--ink); }
   .btn-primary {
     display: inline-flex;
     align-items: center;
@@ -247,6 +353,7 @@
 
   @media (max-width: 680px) {
     .steps { grid-template-columns: 1fr; }
+    .howto-list { grid-template-columns: 1fr; }
     .hero h1 { font-size: 27px; }
     .copy-btn span.label { display: none; }
   }
@@ -265,27 +372,19 @@
 </header>
 
 <section class="hero">
-  <h1>Drei Prompts, ein roter Faden.</h1>
-  <p class="lead">Arbeiten Sie die drei Schritte der Reihe nach durch. Kopieren Sie jeweils den Prompt, fügen Sie ihn in Ihr KI-Tool ein und füllen Sie die Platzhalter in <code>[eckigen Klammern]</code> aus. Die Problem-Nummern aus Schritt&nbsp;1 ziehen sich durch alle Schritte.</p>
+  <h1>Mithilfe von KI eure KI-Use-Cases identifizieren.</h1>
+  <p class="lead">Drei fertige Prompts kopieren, in ein KI-Tool eurer Wahl einfügen, Ergebnis ins gemeinsame Sheet – fertig. Keine Vorkenntnisse nötig.</p>
 </section>
 
-<nav class="steps">
-  <a class="step-chip" href="#prompt-1">
-    <span class="num">1</span>
-    <span class="t">Probleme finden</span>
-    <span class="d">Wo drückt der Schuh?</span>
-  </a>
-  <a class="step-chip" href="#prompt-2">
-    <span class="num">2</span>
-    <span class="t">Chancen erkennen</span>
-    <span class="d">Wo liegt das Potenzial?</span>
-  </a>
-  <a class="step-chip" href="#prompt-3">
-    <span class="num">3</span>
-    <span class="t">Lösungen ableiten</span>
-    <span class="d">Was könnte eine KI-Lösungsidee sein?</span>
-  </a>
-</nav>
+<section class="phase" style="--accent:#0059F0;">
+  <div class="phase-inner">
+    <div class="phase-ico">📋</div>
+    <div class="phase-txt">
+      <strong>3 Prompts ausführen</strong>
+      <p>Die drei Prompts nacheinander in ein KI-Tool einfügen – ChatGPT, Claude, Gemini … egal welches. Am besten im selben Chat.</p>
+    </div>
+  </div>
+</section>
 
 <main>
 
@@ -295,11 +394,11 @@
       <div class="badge">1</div>
       <div class="titles">
         <h2>Problemgetrieben — „Wo drückt der Schuh?"</h2>
-        <div class="sub">Findet 5–7 konkrete Probleme im Arbeitsalltag. Vergibt feste IDs (1–7).</div>
+        <div class="sub">Findet 5–7 konkrete Probleme im Arbeitsalltag. Vergibt feste IDs (P1–P7).</div>
       </div>
     </div>
     <div class="card-body">
-      <p class="desc">Erster Schritt: Probleme sammeln, noch keine Lösungen. Die Nummern bleiben über alle Schritte erhalten.</p>
+      <p class="desc">Erster Schritt: Probleme sammeln, noch keine Lösungen. Die IDs (P1, P2 …) bleiben über alle Schritte erhalten.</p>
       <div class="prompt-wrap">
         <button class="copy-btn" onclick="copyPrompt(this)"><span class="ico">📋</span><span class="label">Kopieren</span></button>
         <pre class="prompt">Du bist ein erfahrener Prozess- und Effizienzberater. Hilf mir, die echten PROBLEME in meinem Unternehmen zu finden – die konkreten Schmerzpunkte im Arbeitsalltag, an denen KI später ansetzen könnte.
@@ -316,14 +415,14 @@ Finde 5 bis 7 konkrete Probleme, mit denen wir täglich oder wöchentlich kämpf
 3. Große Mengen unstrukturierter Daten, die bisher nur teilweise oder manuell genutzt werden.
    Beispiel: Historische Kunden-E-Mails.
 
-Ausgabe als saubere nummerierte Liste, EIN kurzer Satz pro Problem (max. 15 Wörter):
+Ausgabe als saubere Liste mit ID – je Problem eine kurze, prägnante Bezeichnung (max. 12 Wörter, z. B. „manueller Aufwand der CRM-Pflege"), keine Lösungen:
 
-1. [Problem eins]
-2. [Problem zwei]
-3. ...
+P1. [Problem eins]
+P2. [Problem zwei]
+P3. ...
 
 WICHTIG:
-- NUMMERIERE jedes Problem (1 bis 7). Die Nummer ist die feste ID – wir verwenden sie in allen späteren Schritten wieder.
+- Vergib jedem Problem eine ID im Format P1, P2, P3 ... (P1 bis P7). Die ID ist fest – wir verwenden sie in allen späteren Schritten wieder.
 - Schlage noch KEINE KI-Anwendungsfälle oder Lösungen vor. Nur die Probleme.
 - Gesamte Liste max. ~120 Wörter.</pre>
       </div>
@@ -358,6 +457,7 @@ Beantworte für ein Unternehmen wie unseres:
 
 Ausgabe:
 - Gruppiere die Use Cases nach den vier Bereichen (Produktion / Vertrieb / Service / Verwaltung).
+- Formuliere jede Chance direkt als konkrete KI-Lösungsidee (was die KI tun würde) – sie wird später ohne zugehöriges Problem übernommen.
 - Markiere pro Bereich die Top-Chance mit dem größten Hebel mit ⭐.
 - Vergib jeder Chance eine ID im Format C1, C2, C3 ... (die nutzen wir in Schritt #3 weiter).
 - Max. 1–2 Sätze pro Use Case.</pre>
@@ -378,7 +478,7 @@ Ausgabe:
       <p class="desc">Dritter Schritt: Fügen Sie die Ergebnisse aus Schritt 1 und 2 ein.</p>
       <div class="prompt-wrap">
         <button class="copy-btn" onclick="copyPrompt(this)"><span class="ico">📋</span><span class="label">Kopieren</span></button>
-        <pre class="prompt">Du hast jetzt zwei Inputs. Überlege auf dieser Basis, welche KI-Lösungen als Antwort passen könnten.
+        <pre class="prompt">Du hast jetzt zwei Inputs. Bring sie in EINE gemeinsame Tabelle mit drei Spalten: # | Problem | KI-Lösungsidee.
 
 Input A – Unsere Probleme (aus Schritt #1):
 [Hier die nummerierte Problemliste aus Schritt #1 einfügen]
@@ -386,49 +486,103 @@ Input A – Unsere Probleme (aus Schritt #1):
 Input B – Unsere Chancen (aus Schritt #2):
 [Hier die Chancen C1, C2, C3 ... aus Schritt #2 einfügen]
 
-WICHTIG zum Verständnis:
-- Erzwinge KEIN 1:1-Matching zwischen A und B. Eine Chance aus Schritt #2 kann bereits eine Antwort auf ein Problem sein – muss es aber nicht. Sie kann auch völlig unabhängig stehen.
-- Behandle A und B als zwei gleichwertige Quellen. Die konkreten KI-Lösungsideen entwickelst du erst JETZT, in diesem Schritt.
-
-Gehe so vor:
-1. Gehe die Problemliste aus Schritt #1 durch und schlage zu jedem Problem eine mögliche KI-Lösungsidee vor. Nutze die Chancen aus Schritt #2 als Inspiration, wo sie passen – sonst denke eigenständig weiter.
-2. Ergänze danach KI-Lösungsideen aus den Chancen (Schritt #2), die zu keinem Problem direkt passen, aber trotzdem Potenzial haben.
+So befüllst du die Tabelle:
+1. Für JEDES Problem aus Input A: Trage das Problem in die Spalte „Problem" ein (behalte die ID P1, P2, P3 ...) und formuliere in „KI-Lösungsidee" eine passende KI-Lösung. Nutze die Chancen aus Schritt #2 als Inspiration, wo sie passen – sonst denke eigenständig weiter.
+2. Für JEDE Chance aus Input B: Die Chance IST bereits die KI-Lösungsidee – trage sie in die Spalte „KI-Lösungsidee" ein (ID C1, C2 ...). Die Spalte „Problem" bleibt hier LEER, weil kein konkretes Problem genannt wurde.
 
 Gib das Ergebnis als saubere Markdown-Tabelle aus:
 
-| # | Problem / Chance | Mögliche KI-Lösungsidee |
-|---|------------------|-------------------------|
-| 1 | [Problem aus #1] | ...                     |
-| 2 | [Problem aus #1] | ...                     |
-| ... | ...            | ...                     |
-| C | [Chance aus #2]  | ...                     |
+| # | Problem | KI-Lösungsidee |
+|---|---------|----------------|
+| P1 | manueller Aufwand der CRM-Pflege | ...                   |
+| P2 | [Problem aus #1] | ...                                    |
+| C1 |  | [Chance aus #2 als KI-Lösungsidee]                     |
 
 REGELN:
-- Behalte die Problem-IDs aus Schritt #1 bei (1, 2, 3 ...).
-- Eigenständige Ideen aus Schritt #2 (ohne direktes Problem) kommen unten und werden mit „C" markiert.
-- KI-Lösungsidee = ein kurzer Satz, der beschreibt, was die KI tun würde, max. 15 Wörter.
+- Spalte „Problem": nur echte Probleme als kurze, prägnante Bezeichnung (z. B. „manueller Aufwand der CRM-Pflege") – keine Lösungen.
+- Chancen-Zeilen (C1, C2 ...): Spalte „Problem" LEER lassen, nur „KI-Lösungsidee" füllen.
+- Nicht jede Zeile hat beides – Problemzeilen haben beide Spalten, Chancenzeilen nur die Lösung.
+- KI-Lösungsidee = ein kurzer Satz, was die KI tun würde, max. 15 Wörter.
 - Gib NUR die Tabelle aus, ohne weiteren Text davor oder danach.</pre>
       </div>
     </div>
   </article>
 
-  <div class="tip">
-    <strong>💡 Tipp für den Ablauf</strong>
-    Arbeiten Sie im selben Chat-Verlauf: Erst Prompt 1, Antwort abwarten — dann Prompt 2 — dann Prompt 3. So kennt die KI Ihre Probleme und Chancen bereits und Sie müssen sie in Schritt 3 nicht erneut einfügen.
-  </div>
-
-  <section class="collect" id="sammeln">
+  <section class="collect" id="sammeln" style="--accent:#f08c00;">
     <div class="collect-head">
       <span class="collect-ico">📊</span>
-      <h2>Ergebnisse sammeln</h2>
+      <h2>In eine geteilte Liste einfügen</h2>
     </div>
-    <p class="collect-lead">Kopieren Sie zum Abschluss Ihre Tabelle aus Schritt&nbsp;3 und tragen Sie sie in die gemeinsame Tabelle ein. So entsteht aus allen Teilnehmenden eine Gesamtübersicht.</p>
+    <p class="collect-lead">Zum Abschluss kopiert ihr eure Tabelle aus Prompt&nbsp;3 ins gemeinsame Google&nbsp;Sheet – alle Teams ins selbe Blatt. So entsteht aus allen Teilnehmenden eine Gesamtübersicht.</p>
     <ol class="collect-steps">
-      <li>Tabelle aus <strong>Schritt 3</strong> markieren und kopieren (Strg/Cmd&nbsp;+&nbsp;C).</li>
+      <li>Tabelle aus <strong>Prompt&nbsp;3</strong> markieren und kopieren (Strg/Cmd&nbsp;+&nbsp;C).</li>
       <li>In der gemeinsamen Tabelle in die <strong>erste freie Zeile</strong> klicken und einfügen (Strg/Cmd&nbsp;+&nbsp;V) — die Spalten füllen sich automatisch.</li>
+      <li><strong>⚠️ Kurz prüfen:</strong> Stehen dort keine geheimen Unternehmensdaten, echten Namen oder Kundennamen? Falls doch – einfach löschen oder anonymisieren.</li>
     </ol>
     <a class="btn-primary" href="https://docs.google.com/spreadsheets/d/1rqooCpc-9Rhj2-AVCIWgf0riRH7MzHRexzluR8epUAM/edit?usp=sharing" target="_blank" rel="noopener">➡️ Zur gemeinsamen Ergebnis-Tabelle</a>
   </section>
+
+  <div class="phase-inner" style="--accent:#2f9e44; margin-top:24px;">
+    <div class="phase-ico">✅</div>
+    <div class="phase-txt">
+      <strong>Fertig</strong>
+      <p>Mehr müsst ihr nicht tun. Den Rest übernehme ich – ich konsolidiere alle Use Cases zu einer Management-Übersicht.</p>
+    </div>
+  </div>
+
+  <!-- PROMPT 4 – KONSOLIDIEREN (Kursleitung) -->
+  <article class="card c4" id="prompt-4">
+    <div class="card-head">
+      <div class="badge">★</div>
+      <div class="titles">
+        <h2>Konsolidieren — „konsolidiere"</h2>
+        <div class="sub"><span class="lead-tag">Für die Kursleitung</span>Aus der langen Gesamtliste wird eine Management-Summary auf einem zweiten Tabellenblatt.</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="desc">
+        <p style="margin:6px 0 0;">Sobald alle Teams ihre Use Cases im ersten Tabellenblatt gesammelt haben, sage ich als Kursleiter <strong>„konsolidiere"</strong>. Auf einem neuen Tabellenblatt entsteht daraus die konsolidierte Übersicht — die KI:</p>
+        <ul>
+          <li>erkennt Doppelnennungen und führt sie zusammen</li>
+          <li>konsolidiert ähnliche Probleme/Chancen</li>
+          <li>präzisiert unscharfe Aussagen</li>
+          <li>prüft Lösungen auf Plausibilität</li>
+          <li>ergänzt fehlende, naheliegende Lösungen</li>
+          <li>formuliert faktenbasiert und managementtauglich</li>
+          <li>erhält die ursprüngliche Nummerierung nachvollziehbar</li>
+          <li>stellt die Abdeckung aller relevanten Punkte sicher</li>
+        </ul>
+      </div>
+      <div class="prompt-wrap">
+        <button class="copy-btn" onclick="copyPrompt(this)"><span class="ico">📋</span><span class="label">Kopieren</span></button>
+        <pre class="prompt">Du erhältst eine Tabelle mit:
+
+- Spalte A: ID (Problem P1, P2, P3 ... oder Chance C1, C2 ...)
+- Spalte B: Problem (nur bei Problemzeilen befüllt; bei Chancenzeilen leer)
+- Spalte C: KI-Lösungsidee
+
+Aufgabe:
+
+1. Analysiere alle Einträge vollständig.
+2. Identifiziere Doppelnennungen, Überschneidungen und inhaltlich sehr ähnliche Punkte.
+3. Fasse ähnliche Probleme bzw. Chancen zu übergeordneten Themenclustern zusammen.
+4. Führe die zugehörigen Lösungsansätze zusammen und entferne redundante Formulierungen.
+5. Prüfe die Aussagen kritisch auf Plausibilität, Logik und fachliche Konsistenz.
+6. Formuliere Probleme, Chancen und Lösungen präzise, faktenbasiert und managementgerecht.
+7. Ergänze fehlende, naheliegende Lösungsansätze, wenn diese für eine vollständige Betrachtung relevant sind.
+8. Stelle sicher, dass kein relevanter Aspekt aus der Ursprungsliste verloren geht.
+9. Weise jedem konsolidierten Punkt die ursprünglichen IDs zu, damit die Rückverfolgbarkeit erhalten bleibt.
+10. Priorisiere die Ergebnisse nach potenziellem Nutzen, Risiko bzw. strategischer Relevanz (hoch/mittel/niedrig).
+
+Erstelle die Ausgabe als saubere Markdown-Tabelle in folgender Struktur:
+
+| Konsolidierte IDs | Kategorie/Thema | Konsolidiertes Problem bzw. Chance | Konsolidierte und optimierte Lösung(en) | Priorität | Begründung |
+|-------------------|-----------------|------------------------------------|-----------------------------------------|-----------|------------|
+
+Gib NUR die Tabelle aus, ohne weiteren Text davor oder danach.</pre>
+      </div>
+    </div>
+  </article>
 
 </main>
 
