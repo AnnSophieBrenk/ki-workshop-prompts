@@ -435,7 +435,7 @@ WICHTIG:
       <div class="badge">2</div>
       <div class="titles">
         <h2>Chancengetrieben — „Wo liegt das Potenzial?"</h2>
-        <div class="sub">Identifiziert Use Cases nach Bereich. Vergibt Chancen-IDs (C1, C2 …).</div>
+        <div class="sub">Identifiziert Use Cases nach Bereich – max. 2 pro Bereich. Vergibt Chancen-IDs (C1–C8).</div>
       </div>
     </div>
     <div class="card-body">
@@ -450,17 +450,18 @@ Beispiel: „Mittelständischer Hersteller von Präzisionsmaschinen für die Aut
 
 Beantworte für ein Unternehmen wie unseres:
 
-1. Welche Chancen bietet generative KI grundsätzlich für ein Unternehmen wie unseres?
-2. Welche konkreten Use Cases haben in unserer Branche den größten Hebel – jeweils getrennt nach Produktion, Vertrieb, Service und Verwaltung?
-3. Welche innovativen Anwendungen könnten uns einen echten Wettbewerbsvorteil verschaffen?
-4. Welche Trends und Aktivitäten verfolgen Wettbewerber oder vergleichbare Industrien bereits?
+Welche konkreten KI-Use-Cases haben in unserer Branche den größten Hebel – getrennt nach Produktion, Vertrieb, Service und Verwaltung?
+Berücksichtige dabei, was echten Wettbewerbsvorteil bringt und was Wettbewerber oder vergleichbare Industrien bereits tun – aber liste das nicht separat auf.
 
 Ausgabe:
 - Gruppiere die Use Cases nach den vier Bereichen (Produktion / Vertrieb / Service / Verwaltung).
+- MAXIMAL 2 Chancen pro Bereich – also höchstens 8 insgesamt (C1–C8). Lieber 1 starke als 2 schwache. Nimm nur die mit dem größten Hebel.
+- Vergib jeder Chance eine ID im Format C1, C2, C3 ... (die nutzen wir in Schritt #3 weiter).
 - Formuliere jede Chance direkt als konkrete KI-Lösungsidee (was die KI tun würde) – sie wird später ohne zugehöriges Problem übernommen.
 - Markiere pro Bereich die Top-Chance mit dem größten Hebel mit ⭐.
-- Vergib jeder Chance eine ID im Format C1, C2, C3 ... (die nutzen wir in Schritt #3 weiter).
-- Max. 1–2 Sätze pro Use Case.</pre>
+- Pro Use Case 1–2 Sätze, davon einer mit einem konkreten Beispiel in Klammern: welche Daten, welches System, welcher Auslöser (z. B. „liest eingehende Reklamations-Mails und schlägt anhand der letzten 200 gelösten Fälle eine Antwort samt Kulanzhöhe vor").
+- Keine allgemeinen Formulierungen wie „KI-gestützte Optimierung von X". Nenne immer, WAS die KI liest und WAS sie erzeugt.
+- Keine Einleitung, keine Zusammenfassung, keine weiteren Listen.</pre>
       </div>
     </div>
   </article>
@@ -471,11 +472,11 @@ Ausgabe:
       <div class="badge">3</div>
       <div class="titles">
         <h2>Lösungsgetrieben — „Was könnte eine KI-Lösungsidee sein?"</h2>
-        <div class="sub">Verbindet Probleme und Chancen zu KI-Lösungsideen — als kopierbare Tabelle.</div>
+        <div class="sub">Führt Doppeltes zusammen und macht daraus eine kopierbare Tabelle mit max. 20 Zeilen.</div>
       </div>
     </div>
     <div class="card-body">
-      <p class="desc">Dritter Schritt: Fügen Sie die Ergebnisse aus Schritt 1 und 2 ein.</p>
+      <p class="desc">Dritter Schritt: Fügen Sie die Ergebnisse aus Schritt 1 und 2 ein. Ergebnis: eine Tabelle mit rund 12–20 Zeilen. Sind es deutlich mehr oder stehen ähnliche Punkte doppelt drin — einfach „fasse inhaltlich gleiche Zeilen zusammen, max. 20 Zeilen" hinterherschicken.</p>
       <div class="prompt-wrap">
         <button class="copy-btn" onclick="copyPrompt(this)"><span class="ico">📋</span><span class="label">Kopieren</span></button>
         <pre class="prompt">Du hast jetzt zwei Inputs. Bring sie in EINE gemeinsame Tabelle mit drei Spalten: # | Problem | KI-Lösungsidee.
@@ -486,23 +487,43 @@ Input A – Unsere Probleme (aus Schritt #1):
 Input B – Unsere Chancen (aus Schritt #2):
 [Hier die Chancen C1, C2, C3 ... aus Schritt #2 einfügen]
 
-So befüllst du die Tabelle:
-1. Für JEDES Problem aus Input A: Trage das Problem in die Spalte „Problem" ein (behalte die ID P1, P2, P3 ...) und formuliere in „KI-Lösungsidee" eine passende KI-Lösung. Nutze die Chancen aus Schritt #2 als Inspiration, wo sie passen – sonst denke eigenständig weiter.
-2. Für JEDE Chance aus Input B: Die Chance IST bereits die KI-Lösungsidee – trage sie in die Spalte „KI-Lösungsidee" ein (ID C1, C2 ...). Die Spalte „Problem" bleibt hier LEER, weil kein konkretes Problem genannt wurde.
+SCHRITT 1 – Zusammenführen (mach das ZUERST, bevor du die Tabelle baust):
+Vergleiche jede Chance aus Input B mit jedem Problem aus Input A. Zwei Einträge gehören ZUSAMMEN, wenn sie dieselbe Tätigkeit, denselben Prozessschritt oder dasselbe Dokument betreffen – auch wenn sie unterschiedlich formuliert sind.
+→ Dann wird daraus EINE Zeile: Problem aus A, Lösungsidee aus B, ID kombiniert als „P3+C4". Niemals zwei Zeilen für dieselbe Sache.
+Vergleiche anschließend auch die Chancen untereinander und führe inhaltlich gleiche zusammen („C2+C5").
+
+SCHRITT 2 – Rest ergänzen:
+- Übrige Probleme: Problem eintragen (ID P1, P2 ...) und in „KI-Lösungsidee" eine passende KI-Lösung formulieren.
+- Übrige Chancen: Chance in „KI-Lösungsidee" eintragen (ID C1, C2 ...), Spalte „Problem" bleibt LEER.
+
+SCHRITT 3 – Kürzen:
+Die fertige Tabelle hat MAXIMAL 20 Zeilen. Sind es mehr, streiche die Zeilen mit dem geringsten Nutzen – nicht zusammenfassen, sondern weglassen. Nur wenn ein Punkt inhaltlich wirklich eigenständig und geschäftskritisch ist, darfst du auf bis zu 25 Zeilen gehen. Mehr als 25 nie.
+
+QUALITÄT DER KI-LÖSUNGSIDEE – der wichtigste Teil:
+Jede Lösungsidee hat zwei Teile:
+(a) Was die KI konkret tut: Input → Verarbeitung → Output. Nicht nur das Thema. Max. 25 Wörter.
+(b) In Klammern ein konkretes Beispiel: welche Datenquelle, welches Dokument, welches System, welcher Auslöser. Wenn du eine gute, spezifische Idee hast – nenne sie. Lieber konkret und angreifbar als allgemein und unbestreitbar richtig.
+
+Schwach: „KI unterstützt bei der Angebotserstellung."
+Gut: „Erzeugt aus Anfrage-Mail, Preisliste und den letzten 3 Angeboten an denselben Kunden einen Angebotsentwurf zur Freigabe (z. B. Outlook-Anfrage → Entwurf im CRM, Techniker prüft nur die Positionen)."
+
+VERBOTEN, weil zu flach: „KI-gestützte Automatisierung von X", „Chatbot für X", „KI unterstützt bei X", „Optimierung durch KI", „Analyse von Daten mit KI", „intelligente Verarbeitung von X".
+Klingt eine Zeile so, schreib sie neu: WAS liest die KI, WAS macht sie damit, WAS kommt hinten raus?
+
+Fällt dir für eine Zeile nichts Konkreteres ein als die naheliegende Standardlösung, markiere sie mit ❓ statt sie schönzuschreiben.
 
 Gib das Ergebnis als saubere Markdown-Tabelle aus:
 
 | # | Problem | KI-Lösungsidee |
 |---|---------|----------------|
-| P1 | manueller Aufwand der CRM-Pflege | ...                   |
-| P2 | [Problem aus #1] | ...                                    |
-| C1 |  | [Chance aus #2 als KI-Lösungsidee]                     |
+| P1 | manueller Aufwand der CRM-Pflege | [was die KI liest, macht, erzeugt] (z. B. ...) |
+| P3+C4 | manuelle Angebotserstellung | [zusammengeführte Zeile aus Problem P3 und Chance C4] |
+| C1 |  | [Chance aus #2 als KI-Lösungsidee] (z. B. ...) |
 
 REGELN:
+- Jede Zeile ist inhaltlich einzigartig. Kommt dir eine Zeile bekannt vor, gehört sie zu einer bestehenden – dann zusammenführen.
 - Spalte „Problem": nur echte Probleme als kurze, prägnante Bezeichnung (z. B. „manueller Aufwand der CRM-Pflege") – keine Lösungen.
-- Chancen-Zeilen (C1, C2 ...): Spalte „Problem" LEER lassen, nur „KI-Lösungsidee" füllen.
-- Nicht jede Zeile hat beides – Problemzeilen haben beide Spalten, Chancenzeilen nur die Lösung.
-- KI-Lösungsidee = ein kurzer Satz, was die KI tun würde, max. 15 Wörter.
+- Chancen-Zeilen ohne zugeordnetes Problem: Spalte „Problem" LEER lassen.
 - Gib NUR die Tabelle aus, ohne weiteren Text davor oder danach.</pre>
       </div>
     </div>
@@ -549,6 +570,7 @@ REGELN:
           <li>prüft Lösungen auf Plausibilität</li>
           <li>ergänzt fehlende, naheliegende Lösungen</li>
           <li>formuliert faktenbasiert und managementtauglich</li>
+          <li>deckelt das Ergebnis auf max. 20 Zeilen</li>
           <li>erhält die ursprüngliche Nummerierung nachvollziehbar</li>
           <li>stellt die Abdeckung aller relevanten Punkte sicher</li>
         </ul>
@@ -570,9 +592,11 @@ Aufgabe:
 5. Prüfe die Aussagen kritisch auf Plausibilität, Logik und fachliche Konsistenz.
 6. Formuliere Probleme, Chancen und Lösungen präzise, faktenbasiert und managementgerecht.
 7. Ergänze fehlende, naheliegende Lösungsansätze, wenn diese für eine vollständige Betrachtung relevant sind.
-8. Stelle sicher, dass kein relevanter Aspekt aus der Ursprungsliste verloren geht.
+8. Kein relevantes THEMA darf verloren gehen. Einzelformulierungen dürfen in einem Cluster aufgehen – im Zweifel zusammenführen statt doppelt listen.
 9. Weise jedem konsolidierten Punkt die ursprünglichen IDs zu, damit die Rückverfolgbarkeit erhalten bleibt.
 10. Priorisiere die Ergebnisse nach potenziellem Nutzen, Risiko bzw. strategischer Relevanz (hoch/mittel/niedrig).
+11. Die konsolidierte Tabelle hat maximal 20 Zeilen (25 nur bei zwingend eigenständigen, geschäftskritischen Themen).
+12. Konsolidieren heißt zusammenführen, nicht verallgemeinern. Übernimm beim Zusammenfassen das konkreteste Beispiel aus den Ursprungszeilen und behalte es in Klammern – ergänze es, wenn du ein besseres kennst. Eine konsolidierte Lösung muss weiterhin sagen, WAS die KI liest und WAS sie erzeugt. Formulierungen wie „KI-gestützte Automatisierung im Bereich X" sind kein gültiges Ergebnis.
 
 Erstelle die Ausgabe als saubere Markdown-Tabelle in folgender Struktur:
 
