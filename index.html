@@ -116,7 +116,6 @@
     font-size: 18px;
     color: var(--gray-1);
     margin: 0;
-    max-width: 62ch;
     text-wrap: pretty;
   }
 
@@ -146,7 +145,7 @@
     display: flex; align-items: center; justify-content: center;
   }
   .phase-txt strong { display: block; font-size: 17px; letter-spacing: -.01em; }
-  .phase-txt p { margin: 3px 0 0; font-size: 14px; color: var(--gray-1); line-height: 1.5; max-width: 68ch; }
+  .phase-txt p { margin: 3px 0 0; font-size: 14px; color: var(--gray-1); line-height: 1.5; }
 
   /* ---------- Prompt cards ---------- */
   main { max-width: var(--wrap); margin: 0 auto; padding: 16px 24px 40px; }
@@ -181,7 +180,7 @@
   .card.c3 { --accent: var(--green); }
 
   .card-head .titles h2 { margin: 0; font-size: 20px; letter-spacing: -.015em; line-height: 1.25; }
-  .card-head .titles .sub { color: var(--gray-1); font-size: 14px; margin-top: 4px; max-width: 62ch; }
+  .card-head .titles .sub { color: var(--gray-1); font-size: 14px; margin-top: 4px; }
 
   .card-body { padding: 2px 26px 26px; }
 
@@ -284,12 +283,11 @@
     display: flex; align-items: center; justify-content: center;
     box-shadow: 0 1px 2px rgba(16,24,40,.14), 0 6px 14px -10px rgba(16,24,40,.5);
   }
-  .collect-lead { color: var(--gray-1); font-size: 15px; margin: 14px 0 16px; max-width: 68ch; text-wrap: pretty; }
+  .collect-lead { color: var(--gray-1); font-size: 15px; margin: 14px 0 16px; text-wrap: pretty; }
   .collect-note {
     font-size: 13.5px;
     color: var(--gray-1);
     margin: 14px 0 18px;
-    max-width: 68ch;
   }
   .collect-hint { font-size: 13px; color: var(--gray-2); margin: 10px 0 0; }
 
@@ -322,11 +320,49 @@
   footer {
     max-width: var(--wrap);
     margin: 48px auto 0;
-    padding: 26px 24px 56px;
+    padding: 30px 24px 56px;
     color: var(--gray-2);
     font-size: 13px;
     border-top: 1px solid var(--line);
   }
+  .foot-top {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 28px;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+  .foot-org { color: var(--gray-1); font-weight: 700; }
+  .foot-org span { display: block; font-weight: 400; color: var(--gray-2); margin-top: 2px; }
+  .foot-links {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 18px;
+    margin: 0; padding: 0;
+  }
+  .foot-links a, .foot-fund a {
+    color: var(--gray-1);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: color .15s var(--ease), border-color .15s var(--ease);
+  }
+  .foot-links a:hover, .foot-fund a:hover { color: var(--blue); border-bottom-color: currentColor; }
+  .foot-fund {
+    margin-top: 22px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line-soft);
+  }
+  .foot-fund strong {
+    display: block;
+    color: var(--gray-1);
+    font-size: 12px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .foot-fund p { margin: 0; line-height: 1.6; }
+  .foot-legal { margin-top: 22px; }
 
   @media (max-width: 680px) {
     .hero { padding-top: 44px; }
@@ -603,7 +639,24 @@ Sonst keinen weiteren Text.</pre>
 </main>
 
 <footer>
-  AI:AT — AI at AI Factory Austria · KI-Workshop Prompt-Bibliothek
+  <div class="foot-top">
+    <div class="foot-org">
+      AI Factory Austria (AI:AT)
+      <span>Karl-Farkas-Gasse 22, 1030 Wien</span>
+    </div>
+    <ul class="foot-links">
+      <li><a href="https://www.ait.ac.at/impressum" target="_blank" rel="noopener">Impressum</a></li>
+      <li><a href="https://www.ait.ac.at/disclaimer-data-protection" target="_blank" rel="noopener">Disclaimer</a></li>
+      <li><a href="https://ai-at.eu/en/privacy-policy/" target="_blank" rel="noopener">Datenschutz</a></li>
+      <li><a href="https://ai-at.eu/wp-content/uploads/2026/03/Media-Kit-AI-Factory-Austria.zip" target="_blank" rel="noopener">Media Kit</a></li>
+      <li><a href="https://www.linkedin.com/company/ai-factory-austria/" target="_blank" rel="noopener">LinkedIn</a></li>
+    </ul>
+  </div>
+  <div class="foot-fund">
+    <strong>Funded by</strong>
+    <p>AI Factory Austria AI:AT has received funding from the <a href="https://eurohpc-ju.europa.eu/index_en" target="_blank" rel="noopener">European High-Performance Computing Joint Undertaking</a> (JU) under grant agreement No 101253078. The JU receives support from the Horizon Europe Programme of the European Union and Austria (BMIMI / <a href="https://www.ffg.at/" target="_blank" rel="noopener">FFG</a>).</p>
+  </div>
+  <div class="foot-legal">AI:AT — AI Factory Austria · KI-Workshop Prompt-Bibliothek</div>
 </footer>
 
 <script>
