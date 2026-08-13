@@ -183,8 +183,7 @@
   .card-head .titles h2 { margin: 0; font-size: 20px; letter-spacing: -.015em; line-height: 1.25; }
   .card-head .titles .sub { color: var(--gray-1); font-size: 14px; margin-top: 4px; max-width: 62ch; }
 
-  .card-body { padding: 0 26px 26px; }
-  .card-body .desc { color: var(--gray-1); font-size: 14.5px; margin: 0 0 16px; max-width: 72ch; text-wrap: pretty; }
+  .card-body { padding: 2px 26px 26px; }
 
   /* ---------- Prompt block ---------- */
   .prompt-wrap { position: relative; }
@@ -382,7 +381,7 @@
 
 <section class="hero">
   <h1>Mithilfe von KI eure <span class="nowrap">KI-Use-Cases</span> identifizieren.</h1>
-  <p class="lead">Drei fertige Prompts kopieren, in ein KI-Tool eurer Wahl einfügen, Ergebnis anonymisieren und einreichen. Keine Vorkenntnisse nötig.</p>
+  <p class="lead">Drei Prompts kopieren, in ein KI-Tool einfügen, Ergebnis einreichen. Keine Vorkenntnisse nötig.</p>
 </section>
 
 <section class="phase" style="--accent:#0059F0;">
@@ -390,7 +389,7 @@
     <div class="phase-ico"><svg class="ico-svg" aria-hidden="true"><use href="#i-clipboard"></use></svg></div>
     <div class="phase-txt">
       <strong>3 Prompts ausführen</strong>
-      <p>Die drei Prompts nacheinander in ein KI-Tool einfügen – ChatGPT, Claude, Gemini … egal welches. Am besten im selben Chat.</p>
+      <p>Nacheinander in ein KI-Tool einfügen – ChatGPT, Claude, Gemini. Am besten im selben Chat.</p>
     </div>
   </div>
 </section>
@@ -403,11 +402,10 @@
       <div class="badge">1</div>
       <div class="titles">
         <h2>Problemgetrieben — „Wo drückt der Schuh?"</h2>
-        <div class="sub">Findet 8–12 konkrete Probleme im Arbeitsalltag. Vergibt feste IDs (P1–P12).</div>
+        <div class="sub">Findet 8–12 Probleme im Arbeitsalltag und vergibt feste IDs (P1–P12).</div>
       </div>
     </div>
     <div class="card-body">
-      <p class="desc">Erster Schritt: Probleme sammeln, noch keine Lösungen. Bereits bekannte Probleme können optional gleich mitgegeben werden. Die IDs (P1, P2 …) bleiben über alle Schritte erhalten.</p>
       <div class="prompt-wrap">
         <div class="prompt-bar"><span class="prompt-bar-label">Prompt</span><button class="copy-btn" type="button" aria-label="Prompt kopieren" onclick="copyPrompt(this)"><svg class="ico-svg" aria-hidden="true"><use href="#i-copy"></use></svg><span class="label">Kopieren</span></button></div>
         <pre class="prompt">Du bist ein erfahrener Prozess- und Effizienzberater. Hilf mir, die echten PROBLEME in meinem Unternehmen zu finden – die konkreten Schmerzpunkte im Arbeitsalltag, an denen KI später ansetzen könnte.
@@ -459,18 +457,18 @@ WICHTIG:
       <div class="badge">2</div>
       <div class="titles">
         <h2>Chancengetrieben — „Wo liegt das Potenzial?"</h2>
-        <div class="sub">Identifiziert Use Cases nach Bereich – max. 2 pro Bereich. Vergibt Chancen-IDs (C1–C8).</div>
+        <div class="sub">Findet bis zu 8 Chancen mit generativer und agentischer KI, nach Bereich sortiert (C1–C8).</div>
       </div>
     </div>
     <div class="card-body">
-      <p class="desc">Zweiter Schritt: Blick nach vorne — wo bieten generative und agentische KI in Ihrer Branche den größten Hebel?</p>
       <div class="prompt-wrap">
         <div class="prompt-bar"><span class="prompt-bar-label">Prompt</span><button class="copy-btn" type="button" aria-label="Prompt kopieren" onclick="copyPrompt(this)"><svg class="ico-svg" aria-hidden="true"><use href="#i-copy"></use></svg><span class="label">Kopieren</span></button></div>
         <pre class="prompt">Du bist ein·e Innovationsstratege·in mit Fokus auf generative UND agentische KI in der jeweiligen Branche. Denke chancen- und potenzialgetrieben.
 
-Mein Unternehmen in 2–3 Sätzen:
-[Beschreibe: Branche, Größe/Mitarbeitende, Märkte, Schwerpunkte/Stärken.
-Beispiel: „Mittelständischer Hersteller von Präzisionsmaschinen für die Automobil- und Luftfahrtindustrie, ca. 200 Mitarbeitende, international tätig, mit großem Wert auf Qualität, Innovation und effiziente Prozesse."]
+Unser Unternehmen kennst du aus Schritt #1 – frag nicht noch einmal danach.
+
+Ergänzend, nur falls dort noch nicht genannt:
+[Märkte/Regionen und worin wir besonders stark sind. Leer lassen, wenn es schon in Schritt #1 stand. Nur wenn du in einem neuen Chat arbeitest: hier die Unternehmensbeschreibung aus Schritt #1 einfügen.]
 
 Beantworte für ein Unternehmen wie unseres:
 
@@ -506,11 +504,10 @@ Ausgabe:
       <div class="badge">3</div>
       <div class="titles">
         <h2>Lösungsgetrieben — „Was könnte eine KI-Lösungsidee sein?"</h2>
-        <div class="sub">Führt Doppeltes zusammen und macht daraus eine kopierbare Tabelle mit max. 20 Zeilen.</div>
+        <div class="sub">Führt Schritt 1 und 2 zu einer kopierbaren Tabelle zusammen, max. 20 Zeilen.</div>
       </div>
     </div>
     <div class="card-body">
-      <p class="desc">Dritter Schritt: Fügen Sie die Ergebnisse aus Schritt 1 und 2 ein. Ergebnis: eine Tabelle mit rund 12–20 Zeilen. Sind es deutlich mehr oder stehen ähnliche Punkte doppelt drin — einfach „fasse inhaltlich gleiche Zeilen zusammen, max. 20 Zeilen" hinterherschicken.</p>
       <div class="prompt-wrap">
         <div class="prompt-bar"><span class="prompt-bar-label">Prompt</span><button class="copy-btn" type="button" aria-label="Prompt kopieren" onclick="copyPrompt(this)"><svg class="ico-svg" aria-hidden="true"><use href="#i-copy"></use></svg><span class="label">Kopieren</span></button></div>
         <pre class="prompt">Du hast jetzt zwei Inputs. Bring sie in EINE gemeinsame Tabelle mit drei Spalten: # | Problem | KI-Lösungsidee.
@@ -574,7 +571,7 @@ REGELN:
       <span class="collect-ico"><svg class="ico-svg" aria-hidden="true"><use href="#i-upload"></use></svg></span>
       <h2>Ergebnisse einreichen</h2>
     </div>
-    <p class="collect-lead">Letzter Schritt: Dieser Prompt nimmt eure fertige Tabelle aus Prompt&nbsp;3, entfernt alles Vertrauliche daraus und gibt sie einreichfertig zurück. Anschließend ins Datenblatt einfügen.</p>
+    <p class="collect-lead">Entfernt Vertrauliches aus eurer Tabelle aus Prompt&nbsp;3. Ergebnis ins Datenblatt einfügen.</p>
     <div class="prompt-wrap">
       <div class="prompt-bar"><span class="prompt-bar-label">Prompt</span><button class="copy-btn" type="button" aria-label="Prompt kopieren" onclick="copyPrompt(this)"><svg class="ico-svg" aria-hidden="true"><use href="#i-copy"></use></svg><span class="label">Kopieren</span></button></div>
       <pre class="prompt">Nimm die fertige Tabelle aus dem vorherigen Schritt (# | Problem | KI-Lösungsidee) und mach sie einreichfertig für eine gemeinsame Auswertung mit anderen Unternehmen.
@@ -599,7 +596,7 @@ Gib danach aus:
 
 Sonst keinen weiteren Text.</pre>
     </div>
-    <p class="collect-note">Ergebnis noch einmal selbst überfliegen, bevor ihr es einfügt – ihr kennt euer Unternehmen besser als die KI.</p>
+    <p class="collect-note">Vor dem Einfügen selbst gegenlesen.</p>
     <a class="btn-primary is-pending" href="#" aria-disabled="true">Zum Datenblatt<svg class="ico-svg" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
     <p class="collect-hint">Link folgt.</p>
   </section>
