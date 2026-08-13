@@ -463,10 +463,10 @@ WICHTIG:
       </div>
     </div>
     <div class="card-body">
-      <p class="desc">Zweiter Schritt: Blick nach vorne — wo bietet generative KI in Ihrer Branche den größten Hebel?</p>
+      <p class="desc">Zweiter Schritt: Blick nach vorne — wo bieten generative und agentische KI in Ihrer Branche den größten Hebel?</p>
       <div class="prompt-wrap">
         <div class="prompt-bar"><span class="prompt-bar-label">Prompt</span><button class="copy-btn" type="button" aria-label="Prompt kopieren" onclick="copyPrompt(this)"><svg class="ico-svg" aria-hidden="true"><use href="#i-copy"></use></svg><span class="label">Kopieren</span></button></div>
-        <pre class="prompt">Du bist ein·e Innovationsstratege·in mit Fokus auf generative KI in der jeweiligen Branche. Denke chancen- und potenzialgetrieben.
+        <pre class="prompt">Du bist ein·e Innovationsstratege·in mit Fokus auf generative UND agentische KI in der jeweiligen Branche. Denke chancen- und potenzialgetrieben.
 
 Mein Unternehmen in 2–3 Sätzen:
 [Beschreibe: Branche, Größe/Mitarbeitende, Märkte, Schwerpunkte/Stärken.
@@ -477,13 +477,21 @@ Beantworte für ein Unternehmen wie unseres:
 Welche konkreten KI-Use-Cases haben in unserer Branche den größten Hebel – getrennt nach Produktion, Vertrieb, Service und Verwaltung?
 Berücksichtige dabei, was echten Wettbewerbsvorteil bringt und was Wettbewerber oder vergleichbare Industrien bereits tun – aber liste das nicht separat auf.
 
+Denke dabei in ZWEI Stufen und schöpfe beide aus:
+- Generativ: Die KI erzeugt oder verarbeitet auf Zuruf etwas Einzelnes – einen Text, eine Zusammenfassung, eine Auswertung, eine Einschätzung. Ein Schritt, jedes Mal von einem Menschen angestoßen.
+  Beispiel: Aus einer Reklamations-Mail einen Antwortentwurf schreiben.
+- Agentisch: Die KI übernimmt einen mehrstufigen Vorgang selbst – wird durch ein Ereignis ausgelöst, holt sich die nötigen Informationen aus mehreren Quellen, entscheidet zwischen Wegen, führt Schritte in unseren Systemen aus und legt das Ergebnis einem Menschen zur Freigabe vor.
+  Beispiel: Reagiert selbstständig auf eingehende Reklamationen – ordnet sie dem Auftrag zu, holt Liefer- und Prüfdaten, bewertet die Berechtigung, entwirft die Antwort samt Kulanzvorschlag und legt sie dem Service zur Freigabe vor.
+
+Mindestens 3 der Chancen müssen agentisch sein. Nenne bei agentischen Chancen immer den Auslöser, die Schritte und den Punkt, an dem ein Mensch freigibt – „Agent" allein ist keine Chance.
+
 Ausgabe:
 - Gruppiere die Use Cases nach den vier Bereichen (Produktion / Vertrieb / Service / Verwaltung).
 - MAXIMAL 2 Chancen pro Bereich – also höchstens 8 insgesamt (C1–C8). Lieber 1 starke als 2 schwache. Nimm nur die mit dem größten Hebel.
 - Vergib jeder Chance eine ID im Format C1, C2, C3 ... (die nutzen wir in Schritt #3 weiter).
 - Formuliere jede Chance direkt als konkrete KI-Lösungsidee (was die KI tun würde) – sie wird später ohne zugehöriges Problem übernommen.
 - Markiere pro Bereich die Top-Chance mit dem größten Hebel mit ⭐.
-- Pro Use Case 1–2 Sätze, davon einer mit einem konkreten Beispiel in Klammern: welche Daten, welches System, welcher Auslöser (z. B. „liest eingehende Reklamations-Mails und schlägt anhand der letzten 200 gelösten Fälle eine Antwort samt Kulanzhöhe vor").
+- Pro Use Case 1–2 Sätze (bei agentischen Chancen bis zu 3, damit Auslöser, Schritte und Freigabe hineinpassen), davon einer mit einem konkreten Beispiel in Klammern: welche Daten, welches System, welcher Auslöser (z. B. „liest eingehende Reklamations-Mails und schlägt anhand der letzten 200 gelösten Fälle eine Antwort samt Kulanzhöhe vor").
 - KEINE allgemeine Trend- oder Techniklisten. Jede Chance muss an eine konkrete Arbeitssituation in einem Unternehmen wie unserem anschließen – an eine Tätigkeit, die dort tatsächlich jemand ausführt.
 - Du kennst unseren Alltag nicht. Leitest du eine Chance aus der Branche ab, nimm die Annahme in den Satz mit auf („Falls Reklamationen bei euch noch von Hand zugeordnet werden: …") – und werde danach trotzdem genauso konkret. Lieber eine offen benannte Annahme als eine Behauptung, die nicht stimmt.
 - Keine allgemeinen Formulierungen wie „KI-gestützte Optimierung von X". Nenne immer, WAS die KI liest und WAS sie erzeugt.
@@ -532,13 +540,13 @@ Streiche zuerst das, was am wenigsten bringt: seltene Einzelfälle, Zeilen ohne 
 
 QUALITÄT DER KI-LÖSUNGSIDEE – der wichtigste Teil:
 Jede Lösungsidee hat zwei Teile:
-(a) Was die KI konkret tut: Input → Verarbeitung → Output. Nicht nur das Thema. Max. 25 Wörter.
+(a) Was die KI konkret tut: Input → Verarbeitung → Output. Nicht nur das Thema. Max. 25 Wörter – bei mehrstufigen, agentischen Lösungen max. 35, dann aber mit Auslöser und Freigabepunkt.
 (b) In Klammern ein konkretes Beispiel: welche Datenquelle, welches Dokument, welches System, welcher Auslöser. Wenn du eine gute, spezifische Idee hast – nenne sie. Lieber konkret und angreifbar als allgemein und unbestreitbar richtig.
 
 Schwach: „KI unterstützt bei der Angebotserstellung."
 Gut: „Erzeugt aus Anfrage-Mail, Preisliste und den letzten 3 Angeboten an denselben Kunden einen Angebotsentwurf zur Freigabe (z. B. Outlook-Anfrage → Entwurf im CRM, Techniker prüft nur die Positionen)."
 
-VERBOTEN, weil zu flach: „KI-gestützte Automatisierung von X", „Chatbot für X", „KI unterstützt bei X", „Optimierung durch KI", „Analyse von Daten mit KI", „intelligente Verarbeitung von X".
+VERBOTEN, weil zu flach: „KI-gestützte Automatisierung von X", „Chatbot für X", „KI-Agent für X", „autonomer Agent übernimmt X", „KI unterstützt bei X", „Optimierung durch KI", „Analyse von Daten mit KI", „intelligente Verarbeitung von X".
 Klingt eine Zeile so, schreib sie neu: WAS liest die KI, WAS macht sie damit, WAS kommt hinten raus?
 
 Fällt dir für eine Zeile nichts Konkreteres ein als die naheliegende Standardlösung, markiere sie mit ❓ statt sie schönzuschreiben.
