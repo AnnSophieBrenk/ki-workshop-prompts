@@ -8,15 +8,24 @@
   :root {
     --blue: #0059F0;
     --blue-dark: #034EA2;
-    --green: #C6F2B8;
-    --ink: #000000;
-    --gray-1: #4D4D4D;
-    --gray-2: #808080;
-    --line: #e6e8ec;
-    --bg: #f6f7f9;
+    --green: #2f9e44;
+    --orange: #c2600a;
+    --ink: #0b0d12;
+    --gray-1: #4a4f5a;
+    --gray-2: #6b7280;
+    --line: #e4e7ec;
+    --line-soft: #eef0f4;
+    --bg: #f5f6f8;
     --card: #ffffff;
-    --radius: 16px;
+    --r-sm: 10px;
+    --r: 14px;
+    --r-lg: 18px;
+    --shadow-1: 0 1px 2px rgba(16,24,40,.05), 0 10px 28px -18px rgba(16,24,40,.35);
+    --shadow-2: 0 2px 4px rgba(16,24,40,.05), 0 18px 40px -22px rgba(16,24,40,.45);
+    --ease: cubic-bezier(.2,.7,.25,1);
     --font: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    --mono: "SF Mono", ui-monospace, "Cascadia Code", Menlo, Consolas, monospace;
+    --wrap: 940px;
   }
 
   * { box-sizing: border-box; }
@@ -30,336 +39,336 @@
     background: var(--bg);
     line-height: 1.55;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection { background: color-mix(in srgb, var(--blue) 20%, #fff); color: var(--ink); }
+
+  :focus-visible {
+    outline: 2px solid var(--blue);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  .ico-svg {
+    width: 1em; height: 1em;
+    display: block;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
   }
 
   /* ---------- Header ---------- */
   header {
-    background: #fff;
+    background: rgba(255,255,255,.86);
+    backdrop-filter: saturate(1.6) blur(10px);
     border-bottom: 1px solid var(--line);
     position: sticky;
     top: 0;
     z-index: 50;
   }
   .header-inner {
-    max-width: 920px;
+    max-width: var(--wrap);
     margin: 0 auto;
-    padding: 16px 24px;
+    padding: 14px 24px;
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 14px;
   }
   .header-inner img.logo {
-    height: 46px;
+    height: 42px;
     width: auto;
     display: block;
   }
-  .header-titles { display: flex; flex-direction: column; line-height: 1.2; }
+  .header-titles {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.25;
+    padding-left: 14px;
+    border-left: 1px solid var(--line);
+  }
   .header-titles .kicker {
-    font-size: 12px;
-    letter-spacing: 0.14em;
+    font-size: 11px;
+    letter-spacing: .16em;
     text-transform: uppercase;
     color: var(--blue);
     font-weight: 700;
   }
-  .header-titles .name { font-size: 17px; font-weight: 700; }
+  .header-titles .name { font-size: 16px; font-weight: 700; letter-spacing: -.01em; }
 
   /* ---------- Hero ---------- */
   .hero {
-    max-width: 920px;
+    max-width: var(--wrap);
     margin: 0 auto;
-    padding: 48px 24px 8px;
+    padding: 64px 24px 12px;
   }
   .hero h1 {
-    font-size: 34px;
-    line-height: 1.15;
-    margin: 0 0 14px;
-    letter-spacing: -0.01em;
+    font-size: clamp(30px, 5.2vw, 46px);
+    line-height: 1.08;
+    margin: 0 0 16px;
+    letter-spacing: -.025em;
+    text-wrap: balance;
+    max-width: 20ch;
   }
   .hero p.lead {
     font-size: 18px;
     color: var(--gray-1);
-    margin: 0 0 28px;
-    max-width: 680px;
+    margin: 0;
+    max-width: 62ch;
+    text-wrap: pretty;
   }
-
-  /* ---------- Steps overview ---------- */
-  .steps {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-    max-width: 920px;
-    margin: 0 auto 8px;
-    padding: 0 24px;
-  }
-  .step-chip {
-    background: #fff;
-    border: 1px solid var(--line);
-    border-radius: 12px;
-    padding: 14px 16px;
-    text-decoration: none;
-    color: var(--ink);
-    transition: border-color .15s, transform .15s;
-  }
-  .step-chip:hover { border-color: var(--blue); transform: translateY(-2px); }
-  .step-chip .num {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 26px; height: 26px;
-    border-radius: 50%;
-    background: var(--blue);
-    color: #fff;
-    font-weight: 700;
-    font-size: 14px;
-    margin-bottom: 8px;
-  }
-  .step-chip .t { font-weight: 700; font-size: 14px; display: block; }
-  .step-chip .d { font-size: 13px; color: var(--gray-2); }
-
-  /* ---------- How-to (3 Schritte) ---------- */
-  .howto {
-    max-width: 920px;
-    margin: 8px auto 0;
-    padding: 0 24px;
-  }
-  .howto-title { font-size: 21px; margin: 0 0 16px; }
-  .howto-list {
-    list-style: none;
-    margin: 0; padding: 0;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 14px;
-  }
-  .howto-list li {
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    background: #fff;
-    border: 1px solid var(--line);
-    border-radius: 14px;
-    padding: 24px 20px 20px;
-    transition: border-color .15s, transform .15s, box-shadow .15s;
-  }
-  .howto-list li::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 4px;
-    background: var(--accent, var(--blue));
-  }
-  .howto-list li:hover {
-    transform: translateY(-3px);
-    border-color: var(--accent, var(--blue));
-    box-shadow: 0 10px 26px rgba(0,0,0,.07);
-  }
-  .howto-list .hi {
-    flex: 0 0 auto;
-    width: 52px; height: 52px;
-    border-radius: 15px;
-    background: color-mix(in srgb, var(--accent, var(--blue)) 13%, #fff);
-    color: var(--accent, var(--blue));
-    font-size: 26px;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .howto-list .hc strong { display: block; font-size: 16px; margin-bottom: 4px; }
-  .howto-list .hc p { margin: 0; font-size: 14px; color: var(--gray-1); line-height: 1.5; }
-  .warn { display: block; margin-top: 8px; color: #b42318; font-weight: 600; }
 
   /* ---------- Phasen-Banner ---------- */
   .phase {
-    max-width: 920px;
-    margin: 8px auto 0;
+    max-width: var(--wrap);
+    margin: 36px auto 0;
     padding: 0 24px;
   }
   .phase-inner {
     display: flex;
     align-items: center;
     gap: 16px;
-    background: #fff;
-    border: 1px solid var(--line);
-    border-left: 5px solid var(--accent, var(--blue));
-    border-radius: 14px;
+    background: color-mix(in srgb, var(--accent, var(--blue)) 5%, #fff);
+    border: 1px solid color-mix(in srgb, var(--accent, var(--blue)) 20%, var(--line));
+    border-radius: var(--r);
     padding: 18px 22px;
   }
   .phase-ico {
     flex: 0 0 auto;
-    width: 50px; height: 50px;
-    border-radius: 14px;
-    background: color-mix(in srgb, var(--accent, var(--blue)) 13%, #fff);
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    background: #fff;
+    border: 1px solid color-mix(in srgb, var(--accent, var(--blue)) 22%, var(--line));
     color: var(--accent, var(--blue));
-    font-size: 26px;
+    font-size: 21px;
     display: flex; align-items: center; justify-content: center;
   }
-  .phase-txt strong { display: block; font-size: 18px; }
-  .phase-txt p { margin: 2px 0 0; font-size: 14px; color: var(--gray-1); line-height: 1.5; }
+  .phase-txt strong { display: block; font-size: 17px; letter-spacing: -.01em; }
+  .phase-txt p { margin: 3px 0 0; font-size: 14px; color: var(--gray-1); line-height: 1.5; max-width: 68ch; }
 
   /* ---------- Prompt cards ---------- */
-  main { max-width: 920px; margin: 0 auto; padding: 32px 24px 64px; }
+  main { max-width: var(--wrap); margin: 0 auto; padding: 16px 24px 40px; }
 
   .card {
     background: var(--card);
     border: 1px solid var(--line);
-    border-radius: var(--radius);
-    margin-top: 28px;
+    border-radius: var(--r-lg);
+    margin-top: 20px;
     overflow: hidden;
-    scroll-margin-top: 90px;
+    scroll-margin-top: 88px;
+    box-shadow: var(--shadow-1);
   }
   .card-head {
     display: flex;
     align-items: flex-start;
-    gap: 14px;
-    padding: 22px 24px 6px;
+    gap: 15px;
+    padding: 24px 26px 18px;
+    background: linear-gradient(180deg, color-mix(in srgb, var(--accent, var(--blue)) 7%, #fff) 0%, #fff 100%);
   }
   .badge {
     flex: 0 0 auto;
-    width: 40px; height: 40px;
+    width: 38px; height: 38px;
     border-radius: 11px;
     display: flex; align-items: center; justify-content: center;
-    font-weight: 800; font-size: 18px; color: #fff;
+    font-weight: 800; font-size: 17px; color: #fff;
+    background: var(--accent, var(--blue));
+    box-shadow: 0 1px 2px rgba(16,24,40,.14), 0 6px 14px -10px rgba(16,24,40,.5);
   }
-  .card.c1 { border-top: 4px solid var(--blue); }
-  .card.c1 .badge { background: var(--blue); }
-  .card.c2 { border-top: 4px solid var(--blue-dark); }
-  .card.c2 .badge { background: var(--blue-dark); }
-  .card.c3 { border-top: 4px solid #2f9e44; }
-  .card.c3 .badge { background: #2f9e44; }
-  .card.c4 { border-top: 4px solid #6741d9; }
-  .card.c4 .badge { background: #6741d9; }
-  .card.c4 .titles .sub .lead-tag {
-    display: inline-block;
-    background: #6741d9;
-    color: #fff;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: .04em;
-    text-transform: uppercase;
-    padding: 2px 8px;
-    border-radius: 999px;
-    margin-right: 8px;
-    vertical-align: middle;
-  }
-  .card-body .desc ul { margin: 8px 0 0; padding-left: 20px; }
-  .card-body .desc ul li { margin-bottom: 3px; }
+  .card.c1 { --accent: var(--blue); }
+  .card.c2 { --accent: var(--blue-dark); }
+  .card.c3 { --accent: var(--green); }
 
-  .card-head .titles h2 { margin: 0; font-size: 20px; }
-  .card-head .titles .sub { color: var(--gray-1); font-size: 14px; margin-top: 2px; }
+  .card-head .titles h2 { margin: 0; font-size: 20px; letter-spacing: -.015em; line-height: 1.25; }
+  .card-head .titles .sub { color: var(--gray-1); font-size: 14px; margin-top: 4px; max-width: 62ch; }
 
-  .card-body { padding: 8px 24px 24px; }
-  .card-body .desc { color: var(--gray-1); font-size: 14.5px; margin: 6px 0 16px; }
+  .card-body { padding: 0 26px 26px; }
+  .card-body .desc { color: var(--gray-1); font-size: 14.5px; margin: 0 0 16px; max-width: 72ch; text-wrap: pretty; }
 
+  /* ---------- Prompt block ---------- */
   .prompt-wrap { position: relative; }
+  .nowrap { white-space: nowrap; }
   pre.prompt {
     margin: 0;
     background: #0f1115;
-    color: #e9edf2;
-    border-radius: 12px;
-    padding: 20px 20px 20px;
-    font-family: "SF Mono", ui-monospace, "Cascadia Code", Menlo, Consolas, monospace;
+    color: #dfe5ec;
+    border-radius: 0 0 var(--r) var(--r);
+    padding: 20px 22px 34px;
+    font-family: var(--mono);
     font-size: 13px;
-    line-height: 1.6;
+    line-height: 1.62;
     white-space: pre-wrap;
     word-wrap: break-word;
     max-height: 320px;
     overflow: auto;
+    scrollbar-color: #39414d #0f1115;
+    scrollbar-width: thin;
+    tab-size: 2;
   }
+  pre.prompt::selection { background: rgba(0,89,240,.45); color: #fff; }
   pre.prompt::-webkit-scrollbar { width: 10px; }
-  pre.prompt::-webkit-scrollbar-thumb { background: #39414d; border-radius: 6px; }
+  pre.prompt::-webkit-scrollbar-track { background: transparent; }
+  pre.prompt::-webkit-scrollbar-thumb { background: #39414d; border-radius: 6px; border: 3px solid #0f1115; }
+  pre.prompt::-webkit-scrollbar-thumb:hover { background: #4c5665; }
 
+  .prompt-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    background: #171a21;
+    border-bottom: 1px solid #272c36;
+    border-radius: var(--r) var(--r) 0 0;
+    padding: 9px 10px 9px 18px;
+  }
+  .prompt-bar-label {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: #8b93a1;
+  }
   .copy-btn {
-    position: absolute;
-    top: 12px; right: 12px;
-    background: #fff;
-    color: var(--ink);
-    border: 1px solid #d7dbe0;
-    border-radius: 9px;
-    padding: 8px 14px;
+    background: transparent;
+    color: #cfd6e0;
+    border: 1px solid #333a46;
+    border-radius: 8px;
+    padding: 6px 12px;
     font-family: var(--font);
-    font-size: 13px;
+    font-size: 12.5px;
     font-weight: 700;
     cursor: pointer;
     display: inline-flex;
     align-items: center;
     gap: 7px;
-    transition: background .15s, color .15s, border-color .15s;
+    transition: background .18s var(--ease), color .18s var(--ease), border-color .18s var(--ease);
   }
-  .copy-btn:hover { border-color: var(--blue); color: var(--blue); }
+  .copy-btn .ico-svg { font-size: 15px; transition: transform .32s var(--ease); }
+  .copy-btn:hover { background: #222732; color: #fff; border-color: #4a5261; }
+  .copy-btn:focus-visible { outline-color: #7aa7ff; }
   .copy-btn.copied {
     background: var(--blue);
     color: #fff;
     border-color: var(--blue);
   }
+  .copy-btn.copied .ico-svg { transform: scale(1.14); }
 
-  .tip {
-    max-width: 920px;
-    margin: 40px auto 0;
-    padding: 18px 22px;
-    background: var(--green);
-    border-radius: 12px;
-    font-size: 14.5px;
+  .prompt-wrap::after {
+    content: "";
+    position: absolute;
+    left: 1px; right: 1px; bottom: 1px;
+    height: 34px;
+    border-radius: 0 0 var(--r) var(--r);
+    background: linear-gradient(180deg, rgba(15,17,21,0) 0%, rgba(15,17,21,.75) 60%, #0f1115 100%);
+    pointer-events: none;
   }
-  .tip strong { display: block; margin-bottom: 4px; }
 
-  /* ---------- Collect section ---------- */
+  /* ---------- Einreichen ---------- */
   .collect {
-    margin-top: 24px;
-    background: #fff;
+    margin-top: 20px;
+    background: color-mix(in srgb, var(--accent, var(--orange)) 5%, #fff);
     color: var(--ink);
-    border: 1px solid var(--line);
-    border-left: 5px solid var(--accent, #f08c00);
-    border-radius: 14px;
-    padding: 22px 24px 24px;
+    border: 1px solid color-mix(in srgb, var(--accent, var(--orange)) 22%, var(--line));
+    border-radius: var(--r-lg);
+    padding: 24px 26px 26px;
   }
-  .collect-head { display: flex; align-items: center; gap: 16px; }
-  .collect-head h2 { margin: 0; font-size: 20px; }
+  .collect-head { display: flex; align-items: center; gap: 15px; }
+  .collect-head h2 { margin: 0; font-size: 20px; letter-spacing: -.015em; }
   .collect-ico {
     flex: 0 0 auto;
-    width: 50px; height: 50px;
-    border-radius: 14px;
-    background: color-mix(in srgb, var(--accent, #f08c00) 13%, #fff);
-    color: var(--accent, #f08c00);
-    font-size: 26px;
+    width: 38px; height: 38px;
+    border-radius: 11px;
+    background: var(--accent, var(--orange));
+    color: #fff;
+    font-size: 19px;
     display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 1px 2px rgba(16,24,40,.14), 0 6px 14px -10px rgba(16,24,40,.5);
   }
-  .collect-lead { color: var(--gray-1); font-size: 15px; margin: 12px 0 16px; max-width: 640px; }
-  .collect-steps { margin: 0 0 22px; padding-left: 20px; color: var(--gray-1); font-size: 14.5px; }
-  .collect-steps li { margin-bottom: 6px; }
-  .collect-steps strong { color: var(--ink); }
+  .collect-lead { color: var(--gray-1); font-size: 15px; margin: 14px 0 16px; max-width: 68ch; text-wrap: pretty; }
+  .collect-note {
+    font-size: 13.5px;
+    color: var(--gray-1);
+    margin: 14px 0 18px;
+    max-width: 68ch;
+  }
+  .collect-hint { font-size: 13px; color: var(--gray-2); margin: 10px 0 0; }
+
   .btn-primary {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 9px;
     background: var(--blue);
     color: #fff;
     text-decoration: none;
     font-weight: 700;
     font-size: 15px;
     padding: 13px 22px;
-    border-radius: 11px;
-    transition: background .15s, transform .15s;
+    border-radius: var(--r-sm);
+    box-shadow: 0 1px 2px rgba(16,24,40,.12), 0 12px 24px -16px rgba(16,24,40,.6);
+    transition: background .18s var(--ease), transform .18s var(--ease), box-shadow .18s var(--ease);
   }
-  .btn-primary:hover { background: #1e6dff; transform: translateY(-2px); }
+  .btn-primary .ico-svg { font-size: 17px; transition: transform .22s var(--ease); }
+  .btn-primary:hover { background: #1a6bff; transform: translateY(-1px); box-shadow: var(--shadow-2); }
+  .btn-primary:hover .ico-svg { transform: translateX(3px); }
+  .btn-primary.is-pending {
+    background: #fff;
+    color: var(--gray-2);
+    border: 1px dashed color-mix(in srgb, var(--orange) 40%, var(--line));
+    box-shadow: none;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
 
   footer {
-    max-width: 920px;
-    margin: 0 auto;
-    padding: 28px 24px 56px;
+    max-width: var(--wrap);
+    margin: 48px auto 0;
+    padding: 26px 24px 56px;
     color: var(--gray-2);
     font-size: 13px;
     border-top: 1px solid var(--line);
-    margin-top: 40px;
   }
 
   @media (max-width: 680px) {
-    .steps { grid-template-columns: 1fr; }
-    .howto-list { grid-template-columns: 1fr; }
-    .hero h1 { font-size: 27px; }
-    .copy-btn span.label { display: none; }
+    .hero { padding-top: 44px; }
+    .card-head, .collect { padding-left: 20px; padding-right: 20px; }
+    .card-body { padding-left: 20px; padding-right: 20px; }
+    .phase-inner { align-items: flex-start; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition-duration: .01ms !important; animation-duration: .01ms !important; }
   }
 </style>
 </head>
 <body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-clipboard" viewBox="0 0 24 24">
+      <path d="M9 4.5h6a1 1 0 0 1 1 1V7H8V5.5a1 1 0 0 1 1-1Z"/>
+      <path d="M16 6h1.5A1.5 1.5 0 0 1 19 7.5v11A1.5 1.5 0 0 1 17.5 20h-11A1.5 1.5 0 0 1 5 18.5v-11A1.5 1.5 0 0 1 6.5 6H8"/>
+      <path d="M9 12h6M9 15.5h4"/>
+    </symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24">
+      <rect x="9" y="9" width="10.5" height="10.5" rx="2"/>
+      <path d="M15 6.5V6a2 2 0 0 0-2-2H6.5a2 2 0 0 0-2 2V13a2 2 0 0 0 2 2H7"/>
+    </symbol>
+    <symbol id="i-check" viewBox="0 0 24 24">
+      <path d="m5 12.5 4.5 4.5L19 7.5"/>
+    </symbol>
+    <symbol id="i-upload" viewBox="0 0 24 24">
+      <path d="M12 16V4.5"/>
+      <path d="m7.5 9 4.5-4.5L16.5 9"/>
+      <path d="M4.5 15v3A1.5 1.5 0 0 0 6 19.5h12a1.5 1.5 0 0 0 1.5-1.5v-3"/>
+    </symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24">
+      <path d="M4.5 12h14"/>
+      <path d="m13 6.5 5.5 5.5-5.5 5.5"/>
+    </symbol>
+  </defs>
+</svg>
 
 <header>
   <div class="header-inner">
@@ -372,13 +381,13 @@
 </header>
 
 <section class="hero">
-  <h1>Mithilfe von KI eure KI-Use-Cases identifizieren.</h1>
-  <p class="lead">Drei fertige Prompts kopieren, in ein KI-Tool eurer Wahl einfügen, Ergebnis ins gemeinsame Sheet – fertig. Keine Vorkenntnisse nötig.</p>
+  <h1>Mithilfe von KI eure <span class="nowrap">KI-Use-Cases</span> identifizieren.</h1>
+  <p class="lead">Drei fertige Prompts kopieren, in ein KI-Tool eurer Wahl einfügen, Ergebnis anonymisieren und einreichen. Keine Vorkenntnisse nötig.</p>
 </section>
 
 <section class="phase" style="--accent:#0059F0;">
   <div class="phase-inner">
-    <div class="phase-ico">📋</div>
+    <div class="phase-ico"><svg class="ico-svg" aria-hidden="true"><use href="#i-clipboard"></use></svg></div>
     <div class="phase-txt">
       <strong>3 Prompts ausführen</strong>
       <p>Die drei Prompts nacheinander in ein KI-Tool einfügen – ChatGPT, Claude, Gemini … egal welches. Am besten im selben Chat.</p>
@@ -394,40 +403,52 @@
       <div class="badge">1</div>
       <div class="titles">
         <h2>Problemgetrieben — „Wo drückt der Schuh?"</h2>
-        <div class="sub">Findet 5–7 konkrete Probleme im Arbeitsalltag. Vergibt feste IDs (P1–P7).</div>
+        <div class="sub">Findet 8–12 konkrete Probleme im Arbeitsalltag. Vergibt feste IDs (P1–P12).</div>
       </div>
     </div>
     <div class="card-body">
       <p class="desc">Erster Schritt: Probleme sammeln, noch keine Lösungen. Bereits bekannte Probleme können optional gleich mitgegeben werden. Die IDs (P1, P2 …) bleiben über alle Schritte erhalten.</p>
       <div class="prompt-wrap">
-        <button class="copy-btn" onclick="copyPrompt(this)"><span class="ico">📋</span><span class="label">Kopieren</span></button>
+        <div class="prompt-bar"><span class="prompt-bar-label">Prompt</span><button class="copy-btn" type="button" aria-label="Prompt kopieren" onclick="copyPrompt(this)"><svg class="ico-svg" aria-hidden="true"><use href="#i-copy"></use></svg><span class="label">Kopieren</span></button></div>
         <pre class="prompt">Du bist ein erfahrener Prozess- und Effizienzberater. Hilf mir, die echten PROBLEME in meinem Unternehmen zu finden – die konkreten Schmerzpunkte im Arbeitsalltag, an denen KI später ansetzen könnte.
 
 Mein Unternehmen in 2 Sätzen:
 [Beschreibe kurz: Was macht ihr, an wen verkauft ihr, wie groß seid ihr?]
 
+Unsere wichtigsten Systeme und Datenquellen (optional):
+[z. B. CRM (Salesforce), ERP (SAP), Outlook, Netzlaufwerk, DATEV, Ticketsystem. Nenne nur, was ihr wirklich nutzt – daran orientieren sich später die Lösungsvorschläge. Weißt du es nicht genau, lass das Feld leer.]
+
 Meine bereits bekannten Probleme (optional):
-[Liste hier Probleme auf, die dir schon konkret einfallen – je Zeile eines. Die KI greift sie auf, schärft sie und ergänzt weitere. Lass das Feld leer, wenn dir noch nichts einfällt.]
+[Liste hier Probleme auf, die dir schon konkret einfallen – je Zeile eines. Wenn du weißt, wie oft und wie lange etwas anfällt, schreib es dazu (z. B. „CRM-Pflege, täglich ca. 30 Min"). Die KI greift die Probleme auf, schärft sie und ergänzt weitere. Lass das Feld leer, wenn dir noch nichts einfällt.]
 
-Finde 5 bis 7 konkrete Probleme, mit denen wir täglich oder wöchentlich kämpfen – berücksichtige dabei auch meine oben genannten Probleme. Echte, spezifische Probleme – keine abstrakten Ziele. Nutze dafür diese 3 Brillen:
+Finde 8 bis 12 konkrete Probleme, mit denen wir täglich oder wöchentlich kämpfen – berücksichtige dabei auch meine oben genannten Probleme. Echte, spezifische Probleme – keine abstrakten Ziele. Nutze dafür diese 3 Brillen:
 
-1. Wiederkehrende Prozessschritte/Tätigkeiten, die regelmäßig Zeit kosten (mit grober Häufigkeit & Dauer).
-   Beispiel: Eingabe von Kundendaten ins CRM – täglich, ca. 30 Min.
+1. Wiederkehrende Prozessschritte/Tätigkeiten, die regelmäßig Zeit kosten.
+   Beispiel: Eingabe von Kundendaten ins CRM.
 2. Abteilungsübergreifende, regelbasierte Prozesse und Tätigkeiten mit vielen Dokumenten oder viel Recherche/Suche.
    Beispiel: Freigabe aller Ausgaben &gt;1.000 € durch Einkauf &amp; Buchhaltung; Vertragsprüfung auf Standardklauseln.
 3. Große Mengen unstrukturierter Daten, die bisher nur teilweise oder manuell genutzt werden.
    Beispiel: Historische Kunden-E-Mails.
 
+Denke bei der Suche zusätzlich breit über diese Arten von KI-Potenzial nach – als Suchraum, NICHT als Gliederung deiner Antwort:
+Wissen suchen und finden · Informationen zusammenfassen und strukturieren · Texte, Angebote, Berichte, E-Mails erstellen · Dokumente, Daten oder Eingaben prüfen · Vorgänge klassifizieren, weiterleiten oder vorbereiten · Muster in Feedback, Tickets, E-Mails oder Berichten erkennen · Entscheidungen durch Voranalyse vorbereiten.
+
+Nenne aber immer nur das PROBLEM, nie die Fähigkeit – sonst steht die Lösung schon in der Problemzeile.
+Falsch: „fehlende automatische Klassifizierung eingehender Tickets".
+Richtig: „eingehende Tickets werden von Hand der richtigen Abteilung zugeordnet".
+
 Ausgabe als saubere Liste mit ID – je Problem eine kurze, prägnante Bezeichnung (max. 12 Wörter, z. B. „manueller Aufwand der CRM-Pflege"), keine Lösungen:
 
 P1. [Problem eins]
-P2. [Problem zwei]
+P2. [Problem zwei — täglich, ca. 30 Min]   ← Zeitangabe nur, wenn ich sie oben selbst genannt habe
 P3. ...
 
 WICHTIG:
-- Vergib jedem Problem eine ID im Format P1, P2, P3 ... (P1 bis P7). Die ID ist fest – wir verwenden sie in allen späteren Schritten wieder.
+- Vergib jedem Problem eine ID im Format P1, P2, P3 ... (P1 bis P12). Die ID ist fest – wir verwenden sie in allen späteren Schritten wieder.
+- Häufigkeit und Dauer NUR übernehmen, wenn ich sie oben selbst angegeben habe – dann unverändert. Schätze niemals selbst, wie oft oder wie lange etwas anfällt. Ohne meine Angabe bleibt die Zeitangabe einfach weg.
+- KEINE Markt-, Personal- oder Führungsthemen (Fachkräftemangel, Preisdruck, Wettbewerb, Motivation). Nur Tätigkeiten, die jemand bei uns im Alltag konkret ausführt.
 - Schlage noch KEINE KI-Anwendungsfälle oder Lösungen vor. Nur die Probleme.
-- Gesamte Liste max. ~120 Wörter.</pre>
+- Gesamte Liste max. ~200 Wörter.</pre>
       </div>
     </div>
   </article>
@@ -444,7 +465,7 @@ WICHTIG:
     <div class="card-body">
       <p class="desc">Zweiter Schritt: Blick nach vorne — wo bietet generative KI in Ihrer Branche den größten Hebel?</p>
       <div class="prompt-wrap">
-        <button class="copy-btn" onclick="copyPrompt(this)"><span class="ico">📋</span><span class="label">Kopieren</span></button>
+        <div class="prompt-bar"><span class="prompt-bar-label">Prompt</span><button class="copy-btn" type="button" aria-label="Prompt kopieren" onclick="copyPrompt(this)"><svg class="ico-svg" aria-hidden="true"><use href="#i-copy"></use></svg><span class="label">Kopieren</span></button></div>
         <pre class="prompt">Du bist ein·e Innovationsstratege·in mit Fokus auf generative KI in der jeweiligen Branche. Denke chancen- und potenzialgetrieben.
 
 Mein Unternehmen in 2–3 Sätzen:
@@ -463,6 +484,8 @@ Ausgabe:
 - Formuliere jede Chance direkt als konkrete KI-Lösungsidee (was die KI tun würde) – sie wird später ohne zugehöriges Problem übernommen.
 - Markiere pro Bereich die Top-Chance mit dem größten Hebel mit ⭐.
 - Pro Use Case 1–2 Sätze, davon einer mit einem konkreten Beispiel in Klammern: welche Daten, welches System, welcher Auslöser (z. B. „liest eingehende Reklamations-Mails und schlägt anhand der letzten 200 gelösten Fälle eine Antwort samt Kulanzhöhe vor").
+- KEINE allgemeine Trend- oder Techniklisten. Jede Chance muss an eine konkrete Arbeitssituation in einem Unternehmen wie unserem anschließen – an eine Tätigkeit, die dort tatsächlich jemand ausführt.
+- Du kennst unseren Alltag nicht. Leitest du eine Chance aus der Branche ab, nimm die Annahme in den Satz mit auf („Falls Reklamationen bei euch noch von Hand zugeordnet werden: …") – und werde danach trotzdem genauso konkret. Lieber eine offen benannte Annahme als eine Behauptung, die nicht stimmt.
 - Keine allgemeinen Formulierungen wie „KI-gestützte Optimierung von X". Nenne immer, WAS die KI liest und WAS sie erzeugt.
 - Keine Einleitung, keine Zusammenfassung, keine weiteren Listen.</pre>
       </div>
@@ -481,7 +504,7 @@ Ausgabe:
     <div class="card-body">
       <p class="desc">Dritter Schritt: Fügen Sie die Ergebnisse aus Schritt 1 und 2 ein. Ergebnis: eine Tabelle mit rund 12–20 Zeilen. Sind es deutlich mehr oder stehen ähnliche Punkte doppelt drin — einfach „fasse inhaltlich gleiche Zeilen zusammen, max. 20 Zeilen" hinterherschicken.</p>
       <div class="prompt-wrap">
-        <button class="copy-btn" onclick="copyPrompt(this)"><span class="ico">📋</span><span class="label">Kopieren</span></button>
+        <div class="prompt-bar"><span class="prompt-bar-label">Prompt</span><button class="copy-btn" type="button" aria-label="Prompt kopieren" onclick="copyPrompt(this)"><svg class="ico-svg" aria-hidden="true"><use href="#i-copy"></use></svg><span class="label">Kopieren</span></button></div>
         <pre class="prompt">Du hast jetzt zwei Inputs. Bring sie in EINE gemeinsame Tabelle mit drei Spalten: # | Problem | KI-Lösungsidee.
 
 Input A – Unsere Probleme (aus Schritt #1):
@@ -489,6 +512,9 @@ Input A – Unsere Probleme (aus Schritt #1):
 
 Input B – Unsere Chancen (aus Schritt #2):
 [Hier die Chancen C1, C2, C3 ... aus Schritt #2 einfügen]
+
+Input C – Unsere Systeme und Datenquellen (optional):
+[Dieselben Systeme wie in Schritt #1, z. B. CRM (Salesforce), ERP (SAP), Outlook, Netzlaufwerk. Nutze in den Beispielen unten NUR Systeme aus dieser Liste. Ist sie leer, formuliere die Beispiele systemneutral („aus den eingehenden Anfrage-Mails") und erfinde keine Systemnamen.]
 
 SCHRITT 1 – Zusammenführen (mach das ZUERST, bevor du die Tabelle baust):
 Vergleiche jede Chance aus Input B mit jedem Problem aus Input A. Zwei Einträge gehören ZUSAMMEN, wenn sie dieselbe Tätigkeit, denselben Prozessschritt oder dasselbe Dokument betreffen – auch wenn sie unterschiedlich formuliert sind.
@@ -499,8 +525,10 @@ SCHRITT 2 – Rest ergänzen:
 - Übrige Probleme: Problem eintragen (ID P1, P2 ...) und in „KI-Lösungsidee" eine passende KI-Lösung formulieren.
 - Übrige Chancen: Chance in „KI-Lösungsidee" eintragen (ID C1, C2 ...), Spalte „Problem" bleibt LEER.
 
-SCHRITT 3 – Kürzen:
-Die fertige Tabelle hat MAXIMAL 20 Zeilen. Sind es mehr, streiche die Zeilen mit dem geringsten Nutzen – nicht zusammenfassen, sondern weglassen. Nur wenn ein Punkt inhaltlich wirklich eigenständig und geschäftskritisch ist, darfst du auf bis zu 25 Zeilen gehen. Mehr als 25 nie.
+SCHRITT 3 – Kürzen (nur falls nötig):
+Zähle die Zeilen NACH dem Zusammenführen aus Schritt 1. Sind es 20 oder weniger, ist die Tabelle fertig – hier ist nichts mehr zu tun.
+Sind es mehr als 20, streiche die überzähligen Zeilen ersatzlos. Nicht weiter zusammenfassen – Zusammenführen war Schritt 1, hier wird nur noch weggelassen.
+Streiche zuerst das, was am wenigsten bringt: seltene Einzelfälle, Zeilen ohne erkennbare Zeitersparnis, und Zeilen, für die die nötigen Daten bei uns gar nicht vorliegen.
 
 QUALITÄT DER KI-LÖSUNGSIDEE – der wichtigste Teil:
 Jede Lösungsidee hat zwei Teile:
@@ -524,93 +552,49 @@ Gib das Ergebnis als saubere Markdown-Tabelle aus:
 | C1 |  | [Chance aus #2 als KI-Lösungsidee] (z. B. ...) |
 
 REGELN:
-- Jede Zeile ist inhaltlich einzigartig. Kommt dir eine Zeile bekannt vor, gehört sie zu einer bestehenden – dann zusammenführen.
+- Jede Zeile ist inhaltlich einzigartig. Fällt dir beim Schreiben auf, dass zwei Zeilen dieselbe Sache meinen, hast du sie in SCHRITT 1 übersehen – führe sie dort nachträglich zusammen, statt beide stehen zu lassen.
 - Spalte „Problem": nur echte Probleme als kurze, prägnante Bezeichnung (z. B. „manueller Aufwand der CRM-Pflege") – keine Lösungen.
+- Steht bei einem Problem aus Input A eine Zeitangabe (z. B. „täglich, ca. 30 Min"), übernimm sie unverändert mit. Erfinde selbst keine Häufigkeiten oder Dauern und ergänze keine, wo keine steht.
 - Chancen-Zeilen ohne zugeordnetes Problem: Spalte „Problem" LEER lassen.
 - Gib NUR die Tabelle aus, ohne weiteren Text davor oder danach.</pre>
       </div>
     </div>
   </article>
 
-  <section class="collect" id="sammeln" style="--accent:#f08c00;">
+  <section class="collect" id="einreichen" style="--accent:#f08c00;">
     <div class="collect-head">
-      <span class="collect-ico">📊</span>
-      <h2>In eine geteilte Liste einfügen</h2>
+      <span class="collect-ico"><svg class="ico-svg" aria-hidden="true"><use href="#i-upload"></use></svg></span>
+      <h2>Ergebnisse einreichen</h2>
     </div>
-    <p class="collect-lead">Zum Abschluss kopiert ihr eure Tabelle aus Prompt&nbsp;3 ins gemeinsame Google&nbsp;Sheet – alle Teams ins selbe Blatt. So entsteht aus allen Teilnehmenden eine Gesamtübersicht.</p>
-    <ol class="collect-steps">
-      <li>Tabelle aus <strong>Prompt&nbsp;3</strong> markieren und kopieren (Strg/Cmd&nbsp;+&nbsp;C).</li>
-      <li>In der gemeinsamen Tabelle in die <strong>erste freie Zeile</strong> klicken und einfügen (Strg/Cmd&nbsp;+&nbsp;V) — die Spalten füllen sich automatisch.</li>
-      <li><strong>⚠️ Kurz prüfen:</strong> Stehen dort keine geheimen Unternehmensdaten, echten Namen oder Kundennamen? Falls doch – einfach löschen oder anonymisieren.</li>
-    </ol>
-    <a class="btn-primary" href="https://docs.google.com/spreadsheets/d/1rqooCpc-9Rhj2-AVCIWgf0riRH7MzHRexzluR8epUAM/edit?usp=sharing" target="_blank" rel="noopener">➡️ Zur gemeinsamen Ergebnis-Tabelle</a>
+    <p class="collect-lead">Letzter Schritt: Dieser Prompt nimmt eure fertige Tabelle aus Prompt&nbsp;3, entfernt alles Vertrauliche daraus und gibt sie einreichfertig zurück. Anschließend ins Datenblatt einfügen.</p>
+    <div class="prompt-wrap">
+      <div class="prompt-bar"><span class="prompt-bar-label">Prompt</span><button class="copy-btn" type="button" aria-label="Prompt kopieren" onclick="copyPrompt(this)"><svg class="ico-svg" aria-hidden="true"><use href="#i-copy"></use></svg><span class="label">Kopieren</span></button></div>
+      <pre class="prompt">Nimm die fertige Tabelle aus dem vorherigen Schritt (# | Problem | KI-Lösungsidee) und mach sie einreichfertig für eine gemeinsame Auswertung mit anderen Unternehmen.
+
+PRÜFE ZUERST JEDE ZELLE AUF VERTRAULICHES und entferne oder ersetze es:
+- Unternehmensnamen (unserer und fremde) → durch die Branche ersetzen, z. B. „ein Präzisionsmaschinenbauer", „ein Großkunde aus der Automobilbranche".
+- Namen von Personen, Teams, Abteilungsleitungen, Kundinnen und Kunden, Lieferanten → streichen oder durch die Rolle ersetzen („die Vertriebsassistenz").
+- Konkrete Zahlen, die Rückschlüsse zulassen: Umsätze, Preise, Margen, Stückzahlen, Mitarbeitendenzahlen, Vertragswerte → streichen oder auf eine grobe Größenordnung runden.
+- Produktnamen, Projektnamen, interne Codenamen, Standorte, Kundennummern, Vertragsnummern, Dateipfade, Mail-Adressen, Links.
+- Alles, was erkennbar geheim, sicherheitsrelevant oder rechtlich heikel ist (laufende Rechtsfälle, Reklamationen mit Namen, Personaldaten).
+- Systemnamen wie CRM, ERP, Outlook, SAP dürfen bleiben – die sind nicht vertraulich.
+
+Ändere dabei NICHT den fachlichen Inhalt: Das Problem und die KI-Lösungsidee müssen für Außenstehende weiterhin verständlich und konkret bleiben. Anonymisieren heißt ersetzen, nicht weglassen. Aus „Angebote für die Müller GmbH dauern zu lang" wird „Angebote für Bestandskunden dauern zu lang" – nicht „Angebote dauern zu lang".
+
+Gib danach aus:
+
+1. Die bereinigte Tabelle in exakt derselben Struktur wie vorher:
+
+| # | Problem | KI-Lösungsidee |
+
+2. Darunter eine kurze Zeile: „Entfernt: ..." mit einer Aufzählung dessen, was du anonymisiert hast (z. B. „2 Unternehmensnamen, 1 Personenname, 3 Umsatzangaben"). Hast du nichts gefunden, schreibe „Entfernt: nichts – die Tabelle enthielt keine vertraulichen Angaben."
+
+Sonst keinen weiteren Text.</pre>
+    </div>
+    <p class="collect-note">Ergebnis noch einmal selbst überfliegen, bevor ihr es einfügt – ihr kennt euer Unternehmen besser als die KI.</p>
+    <a class="btn-primary is-pending" href="#" aria-disabled="true">Zum Datenblatt<svg class="ico-svg" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
+    <p class="collect-hint">Link folgt.</p>
   </section>
-
-  <div class="phase-inner" style="--accent:#2f9e44; margin-top:24px;">
-    <div class="phase-ico">✅</div>
-    <div class="phase-txt">
-      <strong>Fertig</strong>
-      <p>Mehr müsst ihr nicht tun. Den Rest übernehme ich – ich konsolidiere alle Use Cases zu einer Management-Übersicht.</p>
-    </div>
-  </div>
-
-  <!-- PROMPT 4 – KONSOLIDIEREN (Kursleitung) -->
-  <article class="card c4" id="prompt-4">
-    <div class="card-head">
-      <div class="badge">★</div>
-      <div class="titles">
-        <h2>Konsolidieren — „konsolidiere"</h2>
-        <div class="sub"><span class="lead-tag">Für die Kursleitung</span>Aus der langen Gesamtliste wird eine Management-Summary auf einem zweiten Tabellenblatt.</div>
-      </div>
-    </div>
-    <div class="card-body">
-      <div class="desc">
-        <p style="margin:6px 0 0;">Sobald alle Teams ihre Use Cases im ersten Tabellenblatt gesammelt haben, sage ich als Kursleiter <strong>„konsolidiere"</strong>. Auf einem neuen Tabellenblatt entsteht daraus die konsolidierte Übersicht — die KI:</p>
-        <ul>
-          <li>erkennt Doppelnennungen und führt sie zusammen</li>
-          <li>konsolidiert ähnliche Probleme/Chancen</li>
-          <li>präzisiert unscharfe Aussagen</li>
-          <li>prüft Lösungen auf Plausibilität</li>
-          <li>ergänzt fehlende, naheliegende Lösungen</li>
-          <li>formuliert faktenbasiert und managementtauglich</li>
-          <li>deckelt das Ergebnis auf max. 20 Zeilen</li>
-          <li>erhält die ursprüngliche Nummerierung nachvollziehbar</li>
-          <li>stellt die Abdeckung aller relevanten Punkte sicher</li>
-        </ul>
-      </div>
-      <div class="prompt-wrap">
-        <button class="copy-btn" onclick="copyPrompt(this)"><span class="ico">📋</span><span class="label">Kopieren</span></button>
-        <pre class="prompt">Du erhältst eine Tabelle mit:
-
-- Spalte A: ID (Problem P1, P2, P3 ... oder Chance C1, C2 ...)
-- Spalte B: Problem (nur bei Problemzeilen befüllt; bei Chancenzeilen leer)
-- Spalte C: KI-Lösungsidee
-
-Aufgabe:
-
-1. Analysiere alle Einträge vollständig.
-2. Identifiziere Doppelnennungen, Überschneidungen und inhaltlich sehr ähnliche Punkte.
-3. Fasse ähnliche Probleme bzw. Chancen zu übergeordneten Themenclustern zusammen.
-4. Führe die zugehörigen Lösungsansätze zusammen und entferne redundante Formulierungen.
-5. Prüfe die Aussagen kritisch auf Plausibilität, Logik und fachliche Konsistenz.
-6. Formuliere Probleme, Chancen und Lösungen präzise, faktenbasiert und managementgerecht.
-7. Ergänze fehlende, naheliegende Lösungsansätze, wenn diese für eine vollständige Betrachtung relevant sind.
-8. Kein relevantes THEMA darf verloren gehen. Einzelformulierungen dürfen in einem Cluster aufgehen – im Zweifel zusammenführen statt doppelt listen.
-9. Weise jedem konsolidierten Punkt die ursprünglichen IDs zu, damit die Rückverfolgbarkeit erhalten bleibt.
-10. Priorisiere die Ergebnisse nach potenziellem Nutzen, Risiko bzw. strategischer Relevanz (hoch/mittel/niedrig).
-11. Die konsolidierte Tabelle hat maximal 20 Zeilen (25 nur bei zwingend eigenständigen, geschäftskritischen Themen).
-12. Konsolidieren heißt zusammenführen, nicht verallgemeinern. Übernimm beim Zusammenfassen das konkreteste Beispiel aus den Ursprungszeilen und behalte es in Klammern – ergänze es, wenn du ein besseres kennst. Eine konsolidierte Lösung muss weiterhin sagen, WAS die KI liest und WAS sie erzeugt. Formulierungen wie „KI-gestützte Automatisierung im Bereich X" sind kein gültiges Ergebnis.
-
-Erstelle die Ausgabe als saubere Markdown-Tabelle in folgender Struktur:
-
-| Konsolidierte IDs | Kategorie/Thema | Konsolidiertes Problem bzw. Chance | Konsolidierte und optimierte Lösung(en) | Priorität | Begründung |
-|-------------------|-----------------|------------------------------------|-----------------------------------------|-----------|------------|
-
-Gib NUR die Tabelle aus, ohne weiteren Text davor oder danach.</pre>
-      </div>
-    </div>
-  </article>
-
 </main>
 
 <footer>
@@ -623,16 +607,18 @@ Gib NUR die Tabelle aus, ohne weiteren Text davor oder danach.</pre>
     const text = pre.innerText;
     const done = () => {
       const label = btn.querySelector('.label');
-      const ico = btn.querySelector('.ico');
+      const use = btn.querySelector('.ico-svg use');
+      if (btn.dataset.busy === '1') return;
+      btn.dataset.busy = '1';
       const prevLabel = label ? label.textContent : '';
-      const prevIco = ico.textContent;
       btn.classList.add('copied');
-      ico.textContent = '✓';
+      if (use) use.setAttribute('href', '#i-check');
       if (label) label.textContent = 'Kopiert';
       setTimeout(() => {
         btn.classList.remove('copied');
-        ico.textContent = prevIco;
+        if (use) use.setAttribute('href', '#i-copy');
         if (label) label.textContent = prevLabel;
+        btn.dataset.busy = '';
       }, 1800);
     };
     if (navigator.clipboard && navigator.clipboard.writeText) {
