@@ -394,7 +394,69 @@
   .foot-fund p { margin: 0; line-height: 1.6; }
   .foot-legal { margin-top: 22px; }
 
+  /* ---------- Intake-Formular ---------- */
+  .intake { margin-top: 22px; display: flex; flex-direction: column; gap: 16px; }
+  .intake-field { display: flex; flex-direction: column; gap: 6px; }
+  .intake-field label {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--gray-1);
+    letter-spacing: .01em;
+  }
+  .intake-field label .opt {
+    font-weight: 400;
+    color: var(--gray-2);
+    letter-spacing: 0;
+  }
+  .intake textarea,
+  .intake input {
+    font-family: var(--font);
+    font-size: 14px;
+    color: var(--ink);
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--r-sm);
+    padding: 10px 12px;
+    width: 100%;
+    transition: border-color .18s var(--ease), box-shadow .18s var(--ease);
+  }
+  .intake textarea {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    line-height: 1.6;
+    resize: vertical;
+    min-height: 150px;
+  }
+  .intake textarea::placeholder,
+  .intake input::placeholder { color: var(--gray-2); }
+  .intake textarea:focus,
+  .intake input:focus {
+    outline: none;
+    border-color: var(--accent, var(--blue));
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent, var(--blue)) 18%, transparent);
+  }
+  .intake-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .intake-count {
+    margin: 0;
+    font-size: 12.5px;
+    color: var(--gray-2);
+    min-height: 1.2em;
+  }
+  .intake-count.is-ok { color: var(--green); font-weight: 700; }
+  .intake-count.is-warn { color: var(--orange); font-weight: 700; }
+  .intake button[type="submit"] { align-self: flex-start; }
+  .intake button[type="submit"][disabled] { opacity: .55; cursor: not-allowed; }
+  .intake-msg {
+    margin: 0;
+    font-size: 13.5px;
+    line-height: 1.5;
+    min-height: 1.2em;
+  }
+  .intake-msg.is-ok { color: var(--green); font-weight: 700; }
+  .intake-msg.is-err { color: #c92a2a; font-weight: 700; }
+
   @media (max-width: 680px) {
+    .intake-row { grid-template-columns: 1fr; }
     .header-inner { gap: 10px; }
     .header-titles { padding-left: 10px; }
     .lang a { padding: 5px 10px; }
@@ -644,7 +706,7 @@ RULES:
       <span class="collect-ico"><svg class="ico-svg" aria-hidden="true"><use href="#i-upload"></use></svg></span>
       <h2>Submit results</h2>
     </div>
-    <p class="collect-lead">Strip anything confidential from your table from prompt&nbsp;3. Then paste the result into the data sheet.</p>
+    <p class="collect-lead">Strip anything confidential from your table from prompt&nbsp;3. Then paste the cleaned result below and send it.</p>
     <div class="prompt-wrap">
       <div class="prompt-bar"><span class="prompt-bar-label">Prompt</span><button class="copy-btn" type="button" aria-label="Copy prompt" onclick="copyPrompt(this)"><svg class="ico-svg" aria-hidden="true"><use href="#i-copy"></use></svg><span class="label">Copy</span></button></div>
       <pre class="prompt">Take the finished table from the previous step (# | Problem | AI solution idea) and make it ready for submission to a joint evaluation together with other companies.
@@ -665,9 +727,35 @@ Then output the cleaned table in exactly the same structure as before:
 
 No other text – no introduction, no summary, no list of the changes you made.</pre>
     </div>
-    <p class="collect-note">Proofread it yourself before pasting.</p>
-    <a class="btn-primary is-pending" href="#" aria-disabled="true">Go to data sheet<svg class="ico-svg" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
-    <p class="collect-hint">Link to follow.</p>
+    <p class="collect-note">Proofread it yourself before sending.</p>
+    <form class="intake" novalidate
+          data-endpoint="https://usecase-studio.apps.aiat-poc.at/api/intake"
+          data-msg-rows="{n} rows detected."
+          data-msg-norows="No table rows detected yet."
+          data-msg-toolong="Row {n} is too long – max. 4,000 characters per field."
+          data-msg-nocode="Please enter the workshop code."
+          data-msg-sending="Sending …"
+          data-msg-ok="Sent – {n} rows are now in the database."
+          data-msg-err="Sending failed: {e}"
+          data-msg-offline="Sending is not enabled yet. For now, please send your table to venturestudio@ai-at.eu.">
+      <div class="intake-field">
+        <label for="intake-table">Paste the table from prompt 4</label>
+        <textarea id="intake-table" name="table" rows="8" spellcheck="false" placeholder="| # | Problem | AI solution idea |&#10;|---|---------|------------------|&#10;| P1 | … | … |" required></textarea>
+        <p class="intake-count" aria-live="polite"></p>
+      </div>
+      <div class="intake-row">
+        <div class="intake-field">
+          <label for="intake-code">Workshop code</label>
+          <input id="intake-code" name="code" type="text" autocomplete="off" spellcheck="false" required>
+        </div>
+        <div class="intake-field">
+          <label for="intake-branche">Industry <span class="opt">optional</span></label>
+          <input id="intake-branche" name="branche" type="text" autocomplete="organization">
+        </div>
+      </div>
+      <button class="btn-primary" type="submit">Send<svg class="ico-svg" aria-hidden="true"><use href="#i-arrow"></use></svg></button>
+      <p class="intake-msg" role="status" aria-live="polite"></p>
+    </form>
   </section>
 </main>
 
@@ -728,6 +816,87 @@ No other text – no introduction, no summary, no list of the changes you made.<
     try { document.execCommand('copy'); done(); } catch (e) {}
     document.body.removeChild(ta);
   }
+  (function () {
+    const form = document.querySelector('form.intake');
+    if (!form) return;
+    const ta      = form.querySelector('textarea[name="table"]');
+    const code    = form.querySelector('input[name="code"]');
+    const branche = form.querySelector('input[name="branche"]');
+    const count   = form.querySelector('.intake-count');
+    const msg     = form.querySelector('.intake-msg');
+    const btn     = form.querySelector('button[type="submit"]');
+    const MAX     = 4000;
+
+    function t(key, vars) {
+      let s = form.dataset[key] || '';
+      for (const k in vars) s = s.split('{' + k + '}').join(vars[k]);
+      return s;
+    }
+    function setMsg(text, cls) {
+      msg.textContent = text;
+      msg.className = 'intake-msg' + (cls ? ' ' + cls : '');
+    }
+
+    // Markdown-Tabelle aus Prompt 4 lesen: | # | Problem | Loesungsidee |
+    function parseRows(text) {
+      const rows = [];
+      for (const raw of text.split('\n')) {
+        const line = raw.trim();
+        if (line.charAt(0) !== '|') continue;
+        const cells = line.replace(/^\|/, '').replace(/\|$/, '').split('|').map(c => c.trim());
+        if (cells.length < 3) continue;
+        if (cells.every(c => /^:?-{2,}:?$/.test(c))) continue;   // Trennzeile
+        if (cells[0] === '#') continue;                          // Kopfzeile
+        if (!cells[1] && !cells[2]) continue;                    // leere Zeile
+        rows.push({ ref: cells[0], problem_text: cells[1], loesung_text: cells[2] });
+      }
+      return rows;
+    }
+
+    function updateCount() {
+      const n = parseRows(ta.value).length;
+      count.textContent = n ? t('msgRows', { n: n }) : (ta.value.trim() ? t('msgNorows') : '');
+      count.className = 'intake-count' + (n ? ' is-ok' : (ta.value.trim() ? ' is-warn' : ''));
+    }
+    ta.addEventListener('input', updateCount);
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const rows = parseRows(ta.value);
+      if (!rows.length) { setMsg(t('msgNorows'), 'is-err'); ta.focus(); return; }
+      if (!code.value.trim()) { setMsg(t('msgNocode'), 'is-err'); code.focus(); return; }
+      const bad = rows.findIndex(r => r.problem_text.length > MAX || r.loesung_text.length > MAX);
+      if (bad !== -1) { setMsg(t('msgToolong', { n: bad + 1 }), 'is-err'); return; }
+
+      btn.disabled = true;
+      setMsg(t('msgSending'), '');
+      try {
+        const res = await fetch(form.dataset.endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            workshop_code: code.value.trim(),
+            branche: branche.value.trim() || null,
+            sprache: document.documentElement.lang,
+            entries: rows
+          })
+        });
+        if (res.status === 404 || res.status === 501) { setMsg(t('msgOffline'), 'is-err'); return; }
+        if (!res.ok) {
+          const body = await res.text().catch(() => '');
+          setMsg(t('msgErr', { e: res.status + (body ? ' – ' + body.slice(0, 120) : '') }), 'is-err');
+          return;
+        }
+        setMsg(t('msgOk', { n: rows.length }), 'is-ok');
+        form.reset();
+        updateCount();
+      } catch (err) {
+        setMsg(t('msgOffline'), 'is-err');
+      } finally {
+        btn.disabled = false;
+      }
+    });
+  })();
 </script>
 
 </body>
