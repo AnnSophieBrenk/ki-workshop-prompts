@@ -1,5 +1,13 @@
 # Issue #87 — Domain ai-prompts.aiat-poc.at + CORS für Intake-Endpoint
 
+> **ÜBERHOLT — Issue am 2026-08-19 ohne Umsetzung geschlossen.**
+> Der Ansatz hat sich geändert: keine eigene Domain, kein von außen erreichbarer
+> Intake-Endpoint. Die Prompts leben in der bestehenden Seite `/prompts` des Use Case
+> Studios, das Einreichen läuft über die vorhandene Code-Eingabe `/upload` →
+> `/upload/[code]` als Server Action. Damit entfallen Domain, DNS/TLS, CORS, das
+> Rate-Limit auf dem Intake-Pfad und der anonyme Cross-Origin-Schreibpfad.
+> Dieses Dokument bleibt als Entscheidungsspur erhalten; nichts darin ist umzusetzen.
+
 **Angelegt:** https://gitlab.aiat-poc.at/ai-at/products/usecase-studio/-/work_items/87
 **Assignee:** PhilippJahn
 **Labels:** `type::chore`, `area::infra`, `priority::high`, `status::ready`, `dev::philipp`

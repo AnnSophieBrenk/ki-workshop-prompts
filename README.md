@@ -1,5 +1,14 @@
 # KI-Workshop – Prompt-Bibliothek / AI Workshop – Prompt Library
 
+> **Archiviert am 2026-08-19 — nicht mehr die Leitfassung.**
+> Redigiert werden die Prompt-Texte jetzt im KI Use Case Studio:
+> `src/lib/prompts/content.ts` in `gitlab.aiat-poc.at/ai-at/products/usecase-studio`,
+> live und öffentlich (ohne Passwort) unter
+> https://usecase-studio.apps.aiat-poc.at/prompts — dort zweisprachig über `?lang=en`,
+> mit Einreiche-Weg über `/upload`.
+> Die GitHub-Pages-Seite dieses Repos läuft vorerst unverändert weiter, wird aber
+> nicht mehr gepflegt. Prompt-Änderungen hier erzeugen Drift.
+
 Drei copy-paste-fertige Prompts für den KI-Workshop (AI:AT) – zweisprachig.
 
 **Live DE:** https://annsophiebrenk.github.io/ki-workshop-prompts/

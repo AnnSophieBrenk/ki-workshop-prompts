@@ -1,5 +1,19 @@
 # CLAUDE.md — ki-workshop-prompts
 
+**Status seit 2026-08-19: archiviert.** Die Leitfassung der Prompt-Texte liegt im KI Use Case
+Studio (`src/lib/prompts/content.ts`, Repo `ai-at/products/usecase-studio`), öffentlich unter
+`/prompts` — ohne Passwort, zweisprachig via `?lang=en`, mit CTA auf die Code-Eingabe `/upload`.
+Dieses Repo bildet nur noch den Stand vom 19.08.2026 ab. Prompt-Texte hier NICHT mehr ändern:
+sie leben sonst in drei Dateien auseinander (`index.html`, `en/index.html`, `content.ts`).
+
+Der frühere Plan einer eigenen Domain `ai-prompts.aiat-poc.at` samt Intake-Endpoint ist verworfen
+(Issue #87 im Studio-Repo, ohne Umsetzung geschlossen am 2026-08-19); das Einreichen läuft im
+Studio über `/upload/[code]` als Server Action. Siehe `docs/issue-87-domain-und-cors.md`.
+
+Offen: die GitHub-Pages-Seite (`annsophiebrenk.github.io/ki-workshop-prompts/`) ist weiterhin
+online und zeigt dieselben Texte. Solange sie läuft, ist sie ein zweiter öffentlicher Einstieg —
+Entscheidung über Abschaltung oder Weiterleitung auf `/prompts` steht aus.
+
 Statische Einseiten-Website (GitHub Pages) mit den drei KI-Workshop-Prompts der AI Factory Austria.
 Kein Build, kein Framework, keine Dependencies: `index.html` (DE) und `en/index.html` (EN) sind
 jeweils vollständig eigenständig — CSS und JS liegen inline in der Datei.
