@@ -1,0 +1,11 @@
+# macOS
+.DS_Store
+
+# Session-Orchestrator-Metadaten (lokal, gehoert nicht in ein oeffentliches Repo)
+.orchestrator/
+
+# Fremde Inhalte fern halten. Dieses Repo ist PUBLIC und archiviert — hier lagen
+# zeitweise LinkedIn-Stilprofil und interne Kontextnotizen als untracked Ordner.
+# Ein pauschales `git add -A` haette sie veroeffentlicht. Der Ordner liegt jetzt
+# unter "Claude Projekte/LinkedIn"; der Eintrag bleibt als Schutz stehen.
+LinkedIn/
