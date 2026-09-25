@@ -548,16 +548,13 @@
 My company in 2 sentences:
 [Briefly describe: what do you do, who do you sell to, how big are you?]
 
-Our most important systems and data sources (optional):
-[e.g. CRM (Salesforce), ERP (SAP), Outlook, shared network drive, accounting software, ticketing system. Name only what you actually use – the solution proposals later build on it. If you are not sure, leave this field empty.]
-
 Problems we are already aware of (optional):
-[List problems that already come to mind – one per line. If you know how often something occurs and how long it takes, add it (e.g. “CRM data entry, daily approx. 30 min”). The AI will pick these up, sharpen them and add more. Leave this field empty if nothing comes to mind yet.]
+[List problems that already come to mind – one per line. If you know how often something occurs and how long it takes, add it (e.g. “updating customer data, daily approx. 30 min”). The AI will pick these up, sharpen them and add more. Leave this field empty if nothing comes to mind yet.]
 
 Find 8 to 12 concrete problems we struggle with daily or weekly – taking the problems I listed above into account as well. Real, specific problems – not abstract goals. Use these 3 lenses:
 
 1. Recurring process steps/activities that regularly cost time.
-   Example: entering customer data into the CRM.
+   Example: copying customer data from emails by hand.
 2. Cross-departmental, rule-based processes and activities involving many documents or a lot of research and searching.
    Example: approval of all expenses &gt;€1,000 by purchasing &amp; accounting; checking contracts for standard clauses.
 3. Large volumes of unstructured data that are currently used only partially or manually.
@@ -569,8 +566,9 @@ Searching and finding knowledge · summarising and structuring information · dr
 But always name only the PROBLEM, never the capability – otherwise the solution is already sitting in the problem statement.
 Wrong: “lack of automatic classification of incoming tickets”.
 Right: “incoming tickets are assigned to the right department by hand”.
+Do not name any software or systems unless I mentioned them myself above.
 
-Output as a clean list with IDs – one short, precise label per problem (max. 12 words, e.g. “manual effort of CRM data entry”), no solutions:
+Output as a clean list with IDs – one short, precise label per problem (max. 12 words, e.g. “manual effort of updating customer data”), no solutions:
 
 P1. [problem one]
 P2. [problem two — daily, approx. 30 min]   ← time figures only if I stated them myself above
@@ -613,7 +611,7 @@ Take into account what creates real competitive advantage and what competitors o
 Think in TWO stages and exhaust both:
 - Generative: the AI produces or processes a single thing on request – a text, a summary, an analysis, an assessment. One step, triggered by a human every time.
   Example: drafting a reply to a complaint email.
-- Agentic: the AI handles a multi-step process itself – it is set off by an event, gathers the information it needs from several sources, decides between paths, executes steps in our systems and presents the result to a human for approval.
+- Agentic: the AI handles a multi-step process itself – it is set off by an event, gathers the information it needs from several sources, decides between paths, carries out the steps and presents the result to a human for approval.
   Example: responds to incoming complaints on its own – matches them to the order, pulls delivery and inspection data, assesses whether the claim is justified, drafts the reply including a goodwill proposal and submits it to service for approval.
 
 At least 3 of the opportunities must be agentic. For agentic opportunities always name the trigger, the steps and the point at which a human approves – “an agent” on its own is not an opportunity.
@@ -624,10 +622,11 @@ Output:
 - Give every opportunity an ID in the format O1, O2, O3 ... (we reuse these in step #3).
 - Phrase every opportunity directly as a concrete AI solution idea (what the AI would do) – it will later be carried over without an associated problem.
 - Mark the top opportunity with the greatest leverage in each area with ⭐.
-- 1–2 sentences per use case (up to 3 for agentic ones, so that trigger, steps and approval fit in), one of them containing a concrete example in brackets: which data, which system, which trigger (e.g. “reads incoming complaint emails and proposes a reply including a goodwill amount based on the last 200 resolved cases”).
+- 1–2 sentences per use case (up to 3 for agentic ones, so that trigger, steps and approval fit in), one of them containing a concrete example in brackets: which data, which trigger (e.g. “reads incoming complaint emails and proposes a reply including a goodwill amount based on the last 200 resolved cases”).
 - NO general trend or technology lists. Every opportunity must connect to a concrete work situation in a company like ours – to an activity someone there actually performs.
 - You do not know our day-to-day. If you derive an opportunity from the industry, state the assumption in the sentence (“If complaints are still assigned by hand at your company: …”) – and then still be just as concrete. Better an openly stated assumption than a claim that is not true.
 - No generic phrasing such as “AI-supported optimisation of X”. Always name WHAT the AI reads and WHAT it produces.
+- Do not name any software or systems unless I mentioned them myself.
 - No introduction, no summary, no further lists.</pre>
       </div>
     </div>
@@ -653,9 +652,6 @@ Input A – Our problems (from step #1):
 Input B – Our opportunities (from step #2):
 [Paste the opportunities O1, O2, O3 ... from step #2 here]
 
-Input C – Our systems and data sources (optional):
-[The same systems as in step #1, e.g. CRM (Salesforce), ERP (SAP), Outlook, shared network drive. In the examples below use ONLY systems from this list. If it is empty, phrase the examples system-neutrally (“from the incoming enquiry emails”) and do not invent system names.]
-
 STEP 1 – Merging (do this FIRST, before you build the table):
 Compare every opportunity from input B with every problem from input A. Two entries BELONG TOGETHER if they concern the same activity, the same process step or the same document – even if they are worded differently.
 → They then become ONE row: problem from A, solution idea from B, ID combined as “P3+O4”. Never two rows for the same thing.
@@ -673,10 +669,10 @@ Delete first what adds the least: rare one-off cases, rows with no recognisable 
 QUALITY OF THE AI SOLUTION IDEA – the most important part:
 Every solution idea has two parts:
 (a) What the AI concretely does: input → processing → output. Not just the topic. Max. 25 words – for multi-step, agentic solutions max. 35, but then including trigger and approval point.
-(b) A concrete example in brackets: which data source, which document, which system, which trigger. If you have a good, specific idea – name it. Better concrete and open to challenge than general and indisputably right.
+(b) A concrete example in brackets: which data, which document, which trigger. If you have a good, specific idea – name it. Better concrete and open to challenge than general and indisputably right.
 
 Weak: “AI supports quote creation.”
-Good: “Generates a draft quote for approval from the enquiry email, the price list and the last 3 quotes sent to the same customer (e.g. Outlook enquiry → draft in the CRM, the engineer only checks the line items).”
+Good: “Generates a draft quote for approval from the enquiry email, the price list and the last 3 quotes sent to the same customer (e.g. enquiry by email → finished draft quote, the engineer only checks the line items).”
 
 FORBIDDEN, because too shallow: “AI-supported automation of X”, “chatbot for X”, “AI agent for X”, “autonomous agent takes over X”, “AI supports X”, “optimisation through AI”, “data analysis with AI”, “intelligent processing of X”.
 If a row sounds like that, rewrite it: WHAT does the AI read, WHAT does it do with it, WHAT comes out at the end?
@@ -687,15 +683,16 @@ Output the result as a clean Markdown table:
 
 | # | Problem | AI solution idea |
 |---|---------|------------------|
-| P1 | manual effort of CRM data entry | [what the AI reads, does, produces] (e.g. ...) |
+| P1 | manual effort of updating customer data | [what the AI reads, does, produces] (e.g. ...) |
 | P3+O4 | manual quote creation | [merged row from problem P3 and opportunity O4] |
 | O1 |  | [opportunity from #2 as an AI solution idea] (e.g. ...) |
 
 RULES:
 - Every row is unique in substance. If while writing you notice that two rows mean the same thing, you missed it in STEP 1 – merge them there retroactively instead of leaving both in.
-- “Problem” column: only real problems as a short, precise label (e.g. “manual effort of CRM data entry”) – no solutions.
+- “Problem” column: only real problems as a short, precise label (e.g. “manual effort of updating customer data”) – no solutions.
 - If a problem from input A carries a time figure (e.g. “daily, approx. 30 min”), carry it over unchanged. Do not invent frequencies or durations yourself and do not add any where there are none.
 - Opportunity rows with no associated problem: leave the “Problem” column EMPTY.
+- Do not name any software or systems unless they already appear in input A or B.
 - Output ONLY the table, with no further text before or after it.</pre>
       </div>
     </div>
@@ -717,7 +714,7 @@ FIRST CHECK EVERY CELL FOR CONFIDENTIAL INFORMATION and remove or replace it:
 - Specific figures that allow conclusions to be drawn: revenues, prices, margins, unit numbers, headcount, contract values → delete or round to a rough order of magnitude.
 - Product names, project names, internal code names, locations, customer numbers, contract numbers, file paths, email addresses, links.
 - Anything recognisably secret, security-relevant or legally sensitive (ongoing legal cases, complaints naming individuals, HR data).
-- System names such as CRM, ERP, Outlook, SAP may stay – they are not confidential.
+- Software and system names may stay – they are not confidential.
 
 Do NOT change the substance: the problem and the AI solution idea must remain understandable and concrete for outsiders. Anonymising means replacing, not leaving out. “Quotes for Müller GmbH take too long” becomes “quotes for existing customers take too long” – not “quotes take too long”.
 

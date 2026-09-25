@@ -548,16 +548,13 @@
 Mein Unternehmen in 2 Sätzen:
 [Beschreibe kurz: Was macht ihr, an wen verkauft ihr, wie groß seid ihr?]
 
-Unsere wichtigsten Systeme und Datenquellen (optional):
-[z. B. CRM (Salesforce), ERP (SAP), Outlook, Netzlaufwerk, DATEV, Ticketsystem. Nenne nur, was ihr wirklich nutzt – daran orientieren sich später die Lösungsvorschläge. Weißt du es nicht genau, lass das Feld leer.]
-
 Meine bereits bekannten Probleme (optional):
-[Liste hier Probleme auf, die dir schon konkret einfallen – je Zeile eines. Wenn du weißt, wie oft und wie lange etwas anfällt, schreib es dazu (z. B. „CRM-Pflege, täglich ca. 30 Min"). Die KI greift die Probleme auf, schärft sie und ergänzt weitere. Lass das Feld leer, wenn dir noch nichts einfällt.]
+[Liste hier Probleme auf, die dir schon konkret einfallen – je Zeile eines. Wenn du weißt, wie oft und wie lange etwas anfällt, schreib es dazu (z. B. „Kundendaten pflegen, täglich ca. 30 Min"). Die KI greift die Probleme auf, schärft sie und ergänzt weitere. Lass das Feld leer, wenn dir noch nichts einfällt.]
 
 Finde 8 bis 12 konkrete Probleme, mit denen wir täglich oder wöchentlich kämpfen – berücksichtige dabei auch meine oben genannten Probleme. Echte, spezifische Probleme – keine abstrakten Ziele. Nutze dafür diese 3 Brillen:
 
 1. Wiederkehrende Prozessschritte/Tätigkeiten, die regelmäßig Zeit kosten.
-   Beispiel: Eingabe von Kundendaten ins CRM.
+   Beispiel: Kundendaten aus E-Mails von Hand übertragen.
 2. Abteilungsübergreifende, regelbasierte Prozesse und Tätigkeiten mit vielen Dokumenten oder viel Recherche/Suche.
    Beispiel: Freigabe aller Ausgaben &gt;1.000 € durch Einkauf &amp; Buchhaltung; Vertragsprüfung auf Standardklauseln.
 3. Große Mengen unstrukturierter Daten, die bisher nur teilweise oder manuell genutzt werden.
@@ -569,8 +566,9 @@ Wissen suchen und finden · Informationen zusammenfassen und strukturieren · Te
 Nenne aber immer nur das PROBLEM, nie die Fähigkeit – sonst steht die Lösung schon in der Problemzeile.
 Falsch: „fehlende automatische Klassifizierung eingehender Tickets".
 Richtig: „eingehende Tickets werden von Hand der richtigen Abteilung zugeordnet".
+Nenne keine Software- oder Systemnamen, außer ich habe sie oben selbst erwähnt.
 
-Ausgabe als saubere Liste mit ID – je Problem eine kurze, prägnante Bezeichnung (max. 12 Wörter, z. B. „manueller Aufwand der CRM-Pflege"), keine Lösungen:
+Ausgabe als saubere Liste mit ID – je Problem eine kurze, prägnante Bezeichnung (max. 12 Wörter, z. B. „manueller Aufwand der Kundendatenpflege"), keine Lösungen:
 
 P1. [Problem eins]
 P2. [Problem zwei — täglich, ca. 30 Min]   ← Zeitangabe nur, wenn ich sie oben selbst genannt habe
@@ -613,7 +611,7 @@ Berücksichtige dabei, was echten Wettbewerbsvorteil bringt und was Wettbewerber
 Denke dabei in ZWEI Stufen und schöpfe beide aus:
 - Generativ: Die KI erzeugt oder verarbeitet auf Zuruf etwas Einzelnes – einen Text, eine Zusammenfassung, eine Auswertung, eine Einschätzung. Ein Schritt, jedes Mal von einem Menschen angestoßen.
   Beispiel: Aus einer Reklamations-Mail einen Antwortentwurf schreiben.
-- Agentisch: Die KI übernimmt einen mehrstufigen Vorgang selbst – wird durch ein Ereignis ausgelöst, holt sich die nötigen Informationen aus mehreren Quellen, entscheidet zwischen Wegen, führt Schritte in unseren Systemen aus und legt das Ergebnis einem Menschen zur Freigabe vor.
+- Agentisch: Die KI übernimmt einen mehrstufigen Vorgang selbst – wird durch ein Ereignis ausgelöst, holt sich die nötigen Informationen aus mehreren Quellen, entscheidet zwischen Wegen, führt die Schritte aus und legt das Ergebnis einem Menschen zur Freigabe vor.
   Beispiel: Reagiert selbstständig auf eingehende Reklamationen – ordnet sie dem Auftrag zu, holt Liefer- und Prüfdaten, bewertet die Berechtigung, entwirft die Antwort samt Kulanzvorschlag und legt sie dem Service zur Freigabe vor.
 
 Mindestens 3 der Chancen müssen agentisch sein. Nenne bei agentischen Chancen immer den Auslöser, die Schritte und den Punkt, an dem ein Mensch freigibt – „Agent" allein ist keine Chance.
@@ -624,10 +622,11 @@ Ausgabe:
 - Vergib jeder Chance eine ID im Format C1, C2, C3 ... (die nutzen wir in Schritt #3 weiter).
 - Formuliere jede Chance direkt als konkrete KI-Lösungsidee (was die KI tun würde) – sie wird später ohne zugehöriges Problem übernommen.
 - Markiere pro Bereich die Top-Chance mit dem größten Hebel mit ⭐.
-- Pro Use Case 1–2 Sätze (bei agentischen Chancen bis zu 3, damit Auslöser, Schritte und Freigabe hineinpassen), davon einer mit einem konkreten Beispiel in Klammern: welche Daten, welches System, welcher Auslöser (z. B. „liest eingehende Reklamations-Mails und schlägt anhand der letzten 200 gelösten Fälle eine Antwort samt Kulanzhöhe vor").
+- Pro Use Case 1–2 Sätze (bei agentischen Chancen bis zu 3, damit Auslöser, Schritte und Freigabe hineinpassen), davon einer mit einem konkreten Beispiel in Klammern: welche Daten, welcher Auslöser (z. B. „liest eingehende Reklamations-Mails und schlägt anhand der letzten 200 gelösten Fälle eine Antwort samt Kulanzhöhe vor").
 - KEINE allgemeine Trend- oder Techniklisten. Jede Chance muss an eine konkrete Arbeitssituation in einem Unternehmen wie unserem anschließen – an eine Tätigkeit, die dort tatsächlich jemand ausführt.
 - Du kennst unseren Alltag nicht. Leitest du eine Chance aus der Branche ab, nimm die Annahme in den Satz mit auf („Falls Reklamationen bei euch noch von Hand zugeordnet werden: …") – und werde danach trotzdem genauso konkret. Lieber eine offen benannte Annahme als eine Behauptung, die nicht stimmt.
 - Keine allgemeinen Formulierungen wie „KI-gestützte Optimierung von X". Nenne immer, WAS die KI liest und WAS sie erzeugt.
+- Nenne keine Software- oder Systemnamen, außer ich habe sie selbst erwähnt.
 - Keine Einleitung, keine Zusammenfassung, keine weiteren Listen.</pre>
       </div>
     </div>
@@ -653,9 +652,6 @@ Input A – Unsere Probleme (aus Schritt #1):
 Input B – Unsere Chancen (aus Schritt #2):
 [Hier die Chancen C1, C2, C3 ... aus Schritt #2 einfügen]
 
-Input C – Unsere Systeme und Datenquellen (optional):
-[Dieselben Systeme wie in Schritt #1, z. B. CRM (Salesforce), ERP (SAP), Outlook, Netzlaufwerk. Nutze in den Beispielen unten NUR Systeme aus dieser Liste. Ist sie leer, formuliere die Beispiele systemneutral („aus den eingehenden Anfrage-Mails") und erfinde keine Systemnamen.]
-
 SCHRITT 1 – Zusammenführen (mach das ZUERST, bevor du die Tabelle baust):
 Vergleiche jede Chance aus Input B mit jedem Problem aus Input A. Zwei Einträge gehören ZUSAMMEN, wenn sie dieselbe Tätigkeit, denselben Prozessschritt oder dasselbe Dokument betreffen – auch wenn sie unterschiedlich formuliert sind.
 → Dann wird daraus EINE Zeile: Problem aus A, Lösungsidee aus B, ID kombiniert als „P3+C4". Niemals zwei Zeilen für dieselbe Sache.
@@ -673,10 +669,10 @@ Streiche zuerst das, was am wenigsten bringt: seltene Einzelfälle, Zeilen ohne 
 QUALITÄT DER KI-LÖSUNGSIDEE – der wichtigste Teil:
 Jede Lösungsidee hat zwei Teile:
 (a) Was die KI konkret tut: Input → Verarbeitung → Output. Nicht nur das Thema. Max. 25 Wörter – bei mehrstufigen, agentischen Lösungen max. 35, dann aber mit Auslöser und Freigabepunkt.
-(b) In Klammern ein konkretes Beispiel: welche Datenquelle, welches Dokument, welches System, welcher Auslöser. Wenn du eine gute, spezifische Idee hast – nenne sie. Lieber konkret und angreifbar als allgemein und unbestreitbar richtig.
+(b) In Klammern ein konkretes Beispiel: welche Daten, welches Dokument, welcher Auslöser. Wenn du eine gute, spezifische Idee hast – nenne sie. Lieber konkret und angreifbar als allgemein und unbestreitbar richtig.
 
 Schwach: „KI unterstützt bei der Angebotserstellung."
-Gut: „Erzeugt aus Anfrage-Mail, Preisliste und den letzten 3 Angeboten an denselben Kunden einen Angebotsentwurf zur Freigabe (z. B. Outlook-Anfrage → Entwurf im CRM, Techniker prüft nur die Positionen)."
+Gut: „Erzeugt aus Anfrage-Mail, Preisliste und den letzten 3 Angeboten an denselben Kunden einen Angebotsentwurf zur Freigabe (z. B. Anfrage per Mail → fertiger Angebotsentwurf, Techniker prüft nur die Positionen)."
 
 VERBOTEN, weil zu flach: „KI-gestützte Automatisierung von X", „Chatbot für X", „KI-Agent für X", „autonomer Agent übernimmt X", „KI unterstützt bei X", „Optimierung durch KI", „Analyse von Daten mit KI", „intelligente Verarbeitung von X".
 Klingt eine Zeile so, schreib sie neu: WAS liest die KI, WAS macht sie damit, WAS kommt hinten raus?
@@ -687,15 +683,16 @@ Gib das Ergebnis als saubere Markdown-Tabelle aus:
 
 | # | Problem | KI-Lösungsidee |
 |---|---------|----------------|
-| P1 | manueller Aufwand der CRM-Pflege | [was die KI liest, macht, erzeugt] (z. B. ...) |
+| P1 | manueller Aufwand der Kundendatenpflege | [was die KI liest, macht, erzeugt] (z. B. ...) |
 | P3+C4 | manuelle Angebotserstellung | [zusammengeführte Zeile aus Problem P3 und Chance C4] |
 | C1 |  | [Chance aus #2 als KI-Lösungsidee] (z. B. ...) |
 
 REGELN:
 - Jede Zeile ist inhaltlich einzigartig. Fällt dir beim Schreiben auf, dass zwei Zeilen dieselbe Sache meinen, hast du sie in SCHRITT 1 übersehen – führe sie dort nachträglich zusammen, statt beide stehen zu lassen.
-- Spalte „Problem": nur echte Probleme als kurze, prägnante Bezeichnung (z. B. „manueller Aufwand der CRM-Pflege") – keine Lösungen.
+- Spalte „Problem": nur echte Probleme als kurze, prägnante Bezeichnung (z. B. „manueller Aufwand der Kundendatenpflege") – keine Lösungen.
 - Steht bei einem Problem aus Input A eine Zeitangabe (z. B. „täglich, ca. 30 Min"), übernimm sie unverändert mit. Erfinde selbst keine Häufigkeiten oder Dauern und ergänze keine, wo keine steht.
 - Chancen-Zeilen ohne zugeordnetes Problem: Spalte „Problem" LEER lassen.
+- Nenne keine Software- oder Systemnamen, außer sie stehen schon in Input A oder B.
 - Gib NUR die Tabelle aus, ohne weiteren Text davor oder danach.</pre>
       </div>
     </div>
@@ -717,7 +714,7 @@ PRÜFE ZUERST JEDE ZELLE AUF VERTRAULICHES und entferne oder ersetze es:
 - Konkrete Zahlen, die Rückschlüsse zulassen: Umsätze, Preise, Margen, Stückzahlen, Mitarbeitendenzahlen, Vertragswerte → streichen oder auf eine grobe Größenordnung runden.
 - Produktnamen, Projektnamen, interne Codenamen, Standorte, Kundennummern, Vertragsnummern, Dateipfade, Mail-Adressen, Links.
 - Alles, was erkennbar geheim, sicherheitsrelevant oder rechtlich heikel ist (laufende Rechtsfälle, Reklamationen mit Namen, Personaldaten).
-- Systemnamen wie CRM, ERP, Outlook, SAP dürfen bleiben – die sind nicht vertraulich.
+- Software- und Systemnamen dürfen bleiben – sie sind nicht vertraulich.
 
 Ändere dabei NICHT den fachlichen Inhalt: Das Problem und die KI-Lösungsidee müssen für Außenstehende weiterhin verständlich und konkret bleiben. Anonymisieren heißt ersetzen, nicht weglassen. Aus „Angebote für die Müller GmbH dauern zu lang" wird „Angebote für Bestandskunden dauern zu lang" – nicht „Angebote dauern zu lang".
 
