@@ -782,7 +782,7 @@ Sonst keinen weiteren Text – keine Einleitung, keine Zusammenfassung, keine Li
 
 <script>
   function copyPrompt(btn) {
-    const pre = btn.parentElement.querySelector('pre.prompt');
+    const pre = btn.closest('.prompt-wrap').querySelector('pre.prompt');
     const text = pre.innerText;
     const done = () => {
       const label = btn.querySelector('.label');
@@ -813,7 +813,7 @@ Sonst keinen weiteren Text – keine Einleitung, keine Zusammenfassung, keine Li
     ta.style.opacity = '0';
     document.body.appendChild(ta);
     ta.select();
-    try { document.execCommand('copy'); done(); } catch (e) {}
+    try { if (document.execCommand('copy')) done(); } catch (e) {}
     document.body.removeChild(ta);
   }
   (function () {
